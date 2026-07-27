@@ -15,7 +15,7 @@ import "@/styles/globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — Digital Product & Design Studio`,
+    default: siteConfig.name,
     template: `%s — ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -27,12 +27,12 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — Digital Product & Design Studio`,
+    title: siteConfig.name,
     description: siteConfig.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Digital Product & Design Studio`,
+    title: siteConfig.name,
     description: siteConfig.description,
     creator: siteConfig.twitterHandle,
   },
