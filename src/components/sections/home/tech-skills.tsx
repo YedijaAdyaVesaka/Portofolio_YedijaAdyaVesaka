@@ -13,14 +13,14 @@ export function TechSkills() {
                 {techSkills.map((skill) => (
                     <div
                         key={skill.name}
-                        className="flex items-center gap-3 rounded-full border border-border/60 bg-card/60 px-5 py-2.5 backdrop-blur-md transition-all hover:border-primary/40 hover:bg-card/80"
+                        className="flex shrink-0 items-center gap-3 rounded-2xl border border-border/70 bg-card/70 px-4 py-2.5 shadow-sm backdrop-blur-md transition-all hover:border-primary/50 hover:bg-card/90"
                     >
                         <img
                             src={skill.iconUrl}
                             alt={skill.name}
-                            className="h-6 w-6 object-contain"
+                            className="h-6 w-6 shrink-0 object-contain"
                         />
-                        <span className="text-sm font-semibold text-foreground">
+                        <span className="whitespace-nowrap text-sm font-semibold text-foreground">
                             {skill.name}
                         </span>
                     </div>

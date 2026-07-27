@@ -196,7 +196,7 @@ export const techSkills = [
   { name: "Blender", category: "3d", iconUrl: "https://api.iconify.design/logos:blender.svg" },
   { name: "Figma", category: "design", iconUrl: "https://api.iconify.design/logos:figma.svg" },
   { name: "Adobe Family", category: "design", iconUrl: "https://api.iconify.design/logos:adobe-photoshop.svg" },
-  { name: "CapCut", category: "video", iconUrl: "https://api.iconify.design/simple-icons:capcut.svg" },
+  { name: "CapCut", category: "video", iconUrl: "https://api.iconify.design/cib:capcut.svg" },
   { name: "Microsoft Office", category: "office", iconUrl: "https://api.iconify.design/logos:microsoft-icon.svg" },
 ];
 
