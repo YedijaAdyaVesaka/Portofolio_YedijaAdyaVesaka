@@ -9,7 +9,7 @@ export function TechSkills() {
                     Technical Skills & Tools
                 </p>
             </div>
-            <Marquee duration="30s">
+            <Marquee duration="30s" reverse>
                 {techSkills.map((skill) => (
                     <div
                         key={skill.name}
