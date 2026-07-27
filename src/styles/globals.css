@@ -1,0 +1,263 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------
+ * Design tokens — HSL channels only, consumed by tailwind.config.ts.
+ * Light: #FFFFFF bg / #18181B text. Dark: #09090B bg / near-white text.
+ * Brand: #2563EB (primary) · #4F46E5 (secondary) · #06B6D4 (accent).
+ * ---------------------------------------------------------------- */
+@layer base {
+  :root {
+    --background: 216 100% 98%;
+    --foreground: 224 70% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 70% 12%;
+
+    --border: 214 60% 90%;
+    --input: 214 60% 90%;
+    --ring: 222 100% 58%;
+
+    --primary: 222 100% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 212 100% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 196 100% 53%;
+    --accent-foreground: 240 6% 10%;
+
+    --muted: 214 50% 95%;
+    --muted-foreground: 215 25% 46%;
+
+    --success: 160 84% 39%;
+    --warning: 38 92% 50%;
+    --danger: 0 84% 60%;
+
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 228 30% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 226 28% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --border: 224 25% 18%;
+    --input: 224 25% 18%;
+    --ring: 217 100% 65%;
+
+    --muted: 224 20% 12%;
+    --muted-foreground: 215 20% 70%;
+
+    --accent-foreground: 0 0% 100%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-padding-top: 6.5rem;
+    /* anchors clear the fixed navbar */
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.22);
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.35);
+    border-radius: 999px;
+    border: 3px solid hsl(var(--background));
+  }
+}
+
+/* ------------------------------------------------------------------
+ * Reusable component-level utilities.
+ * ---------------------------------------------------------------- */
+@layer components {
+
+  /* Consistent vertical rhythm between page sections. */
+  .section {
+    @apply py-20 md:py-28;
+  }
+
+  /* Frosted glass surface — works over both themes. */
+  .glass {
+    background-color: hsl(var(--card) / 0.55);
+    border: 1px solid hsl(var(--border) / 0.7);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  }
+
+  /* Brand gradient applied to text. */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
+  }
+
+  /* Lift-on-hover treatment shared by cards. */
+  .card-hover {
+    @apply transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/10;
+  }
+
+  /* Subtle blueprint grid used behind heroes. */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.7) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.7) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* Film-grain overlay for gradient artwork. */
+  .noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Skeleton shimmer sweep. */
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg,
+        transparent,
+        hsl(var(--foreground) / 0.06),
+        transparent);
+    animation: shimmer 1.8s infinite;
+  }
+}
+
+/* ------------------------------------------------------------------
+ * Keyframes + animation utilities.
+ * ---------------------------------------------------------------- */
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .animate-float-delay {
+    animation: float 7s ease-in-out 1.4s infinite;
+  }
+
+  .animate-drift {
+    animation: drift 16s ease-in-out infinite;
+  }
+
+  .animate-marquee {
+    animation: marquee var(--marquee-duration, 32s) linear infinite;
+  }
+
+  .animate-marquee-reverse {
+    animation: marquee-reverse var(--marquee-duration, 32s) linear infinite;
+  }
+
+  .animate-ripple {
+    animation: ripple 650ms ease-out forwards;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
+@keyframes drift {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate3d(36px, -44px, 0) scale(1.06);
+  }
+
+  66% {
+    transform: translate3d(-28px, 24px, 0) scale(0.96);
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes shimmer {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes ripple {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.5;
+  }
+
+  to {
+    transform: translate(-50%, -50%) scale(14);
+    opacity: 0;
+  }
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

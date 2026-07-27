@@ -1,0 +1,135 @@
+import type { Project } from "@/types";
+
+/**
+ * Yedija Adya Vesaka's portfolio projects.
+ */
+export const projects: Project[] = [
+  {
+    slug: "erp-konveksikita",
+    title: "KonveksiKita ERP System",
+    client: "Personal Project",
+    category: "Web",
+    year: 2024,
+    description:
+      "A web-based ERP system for garment/convection businesses featuring product management, material tracking, vendor transactions, purchasing, and real-time dashboard analytics with role-based admin control.",
+    tags: ["PHP", "Laravel", "JavaScript", "MySQL"],
+    outcome: "Real-time dashboard analytics & role-based access control",
+    palette: ["#3B82F6", "#1D4ED8"],
+    aspect: "aspect-[4/3]",
+    image: "/images/Konveksi Kita.png",
+    github: "https://github.com/YedijaAdyaVesaka/ERP-KonveksiKita",
+  },
+  {
+    slug: "church-info-system",
+    title: "Church Information System",
+    client: "Church",
+    category: "Web",
+    year: 2024,
+    description:
+      "A web-based church management system featuring member (jemaat) data management, clergy and ministry tracking, worship scheduling, baptism and marriage records, and admin dashboard with real-time statistics.",
+    tags: ["PHP", "Laravel", "MySQL", "Vite"],
+    outcome: "Centralized record keeping & scheduling",
+    palette: ["#8B5CF6", "#6D28D9"],
+    aspect: "aspect-[3/4]",
+    image: "/images/Sistem Gereja.png",
+    github: "https://github.com/YedijaAdyaVesaka/Sistem_Informasi_Gereja",
+  },
+  {
+    slug: "automatic-plant-watering-system",
+    title: "Automatic Plant Watering System",
+    client: "IoT Project",
+    category: "IoT",
+    year: 2024,
+    description:
+      "An IoT-based automatic plant watering system using soil moisture sensors to monitor soil conditions and trigger irrigation. Integrated with a microcontroller and web dashboard for real-time monitoring and control.",
+    tags: ["Arduino", "ESP32", "Soil Moisture Sensor", "Blynk"],
+    outcome: "Autonomous irrigation & remote control",
+    palette: ["#10B981", "#047857"],
+    aspect: "aspect-square",
+    image: "/images/Penyiram Tanaman Otomatis.png",
+    github: "https://github.com/YedijaAdyaVesaka/Automatic-Plant-Watering-System",
+  },
+  {
+    slug: "greenhouse-monitoring-system",
+    title: "Greenhouse Monitoring System",
+    client: "IoT Project",
+    category: "IoT",
+    year: 2024,
+    description:
+      "An IoT-based greenhouse monitoring system using Arduino to track environmental conditions such as temperature, humidity, and soil moisture, helping optimize plant growth through real-time data monitoring.",
+    tags: ["Arduino", "Sensor (DHT, Soil Moisture)", "C++", "Monitoring System"],
+    outcome: "Real-time environment visualization",
+    palette: ["#0EA5E9", "#0369A1"],
+    aspect: "aspect-[4/3]",
+    image: "/images/Pemantau Green House.png",
+    github: "https://github.com/YedijaAdyaVesaka/Greenhouse-Monitoring-System-Arduino-",
+  },
+  {
+    slug: "find-lost-livestock",
+    title: "Find Lost Livestock Game",
+    client: "Indie Game",
+    category: "Game",
+    year: 2024,
+    description:
+      "Explore the environment and find all the missing livestock! A fun 3D mobile game built with Unity featuring level exploration and interactive gameplay.",
+    tags: ["Unity", "C#", "Blender", "Mobile Game"],
+    outcome: "Playable WebGL/itch.io build",
+    palette: ["#F59E0B", "#B45309"],
+    aspect: "aspect-[3/4]",
+    image: "/images/FindLostLivestock.png",
+    link: "https://yedijaadyavesaka.itch.io/find-lost-livestock",
+  },
+  {
+    slug: "rumah-bumn-jatim-design",
+    title: "Rumah BUMN Jawa Timur Social Media Design",
+    client: "Rumah BUMN Jatim",
+    category: "Design",
+    year: 2024,
+    description:
+      "Designed social media content and product catalog for Rumah BUMN Jawa Timur, including Instagram feeds, Reels, and UMKM product catalogs to promote regional MSME programs.",
+    tags: ["Figma", "Adobe Photoshop", "Catalog Design"],
+    outcome: "20+ feed posts, reels & product catalog designed",
+    palette: ["#EC4899", "#BE185D"],
+    aspect: "aspect-[4/3]",
+    image: "/images/RB Jatim.png",
+    link: "https://www.playbook.com/s/yedijaadyavesaka/portofolio/UfeSXcCjza72MvHbySZjxfeT",
+  },
+  {
+    slug: "rumah-bumn-malang-design",
+    title: "Rumah BUMN Kota Malang Social Media Design",
+    client: "Rumah BUMN Malang",
+    category: "Design",
+    year: 2024,
+    description:
+      "Designed social media content for Rumah BUMN Malang, including Instagram feeds and Reels, to promote UMKM programs, training events, and digital campaigns.",
+    tags: ["Figma", "Adobe Photoshop"],
+    outcome: "Social media visual enhancement",
+    palette: ["#EF4444", "#B91C1C"],
+    aspect: "aspect-square",
+    image: "/images/RB Malang.png",
+    link: "https://www.playbook.com/s/yedijaadyavesaka/portofolio/CBwRyGvBC1X3y5GtpYu6xkqN",
+  },
+  {
+    slug: "naikbus-uiux-design",
+    title: "NaikBus Mobile App UI/UX Design",
+    client: "UI/UX Case Study",
+    category: "Design",
+    year: 2024,
+    description:
+      "Comprehensive mobile application UI/UX design for NaikBus, an online bus ticket booking platform featuring seat selection, destination discovery, promos, and seamless checkout flow.",
+    tags: ["Figma", "UI/UX", "Mobile Design", "Prototyping"],
+    outcome: "Interactive high-fidelity prototype & user flow",
+    palette: ["#2563EB", "#0284C7"],
+    aspect: "aspect-[16/9]",
+    image: "/images/Naik Bus.png",
+    link: "https://www.figma.com/proto/zkEwBTM43TmFBytSxMWenc/NaikBus.-Apps?node-id=363-1254&viewport=283%2C342%2C0.26&t=PvpMf409Wv5kGXTv-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=363%3A1243&page-id=363%3A1242&show-proto-sidebar=1",
+  },
+];
+
+export const projectCategories = [
+  "All",
+  "Web",
+  "Game",
+  "IoT",
+  "Design",
+] as const;
