@@ -13,7 +13,7 @@ export function TechSkills() {
                 {techSkills.map((skill) => (
                     <div
                         key={skill.name}
-                        className="flex items-center gap-3 rounded-2xl border border-border/60 bg-card/60 px-5 py-3 backdrop-blur-md transition-all hover:border-primary/40 hover:bg-card/80"
+                        className="flex items-center gap-3 rounded-full border border-border/60 bg-card/60 px-5 py-2.5 backdrop-blur-md transition-all hover:border-primary/40 hover:bg-card/80"
                     >
                         <img
                             src={skill.iconUrl}
