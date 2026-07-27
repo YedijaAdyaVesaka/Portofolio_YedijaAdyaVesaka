@@ -4,6 +4,7 @@ import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { experiences, educationList } from "@/lib/data/company";
 import { Marquee } from "@/components/ui/marquee";
+import { TechSkills } from "./tech-skills";
 
 export function AboutSection() {
     return (
@@ -82,6 +83,9 @@ export function AboutSection() {
                     </Reveal>
                 </div>
             </section>
+
+            {/* Technical Skills Marquee */}
+            <TechSkills />
 
             {/* ----------------------------- education ---------------------------- */}
             <section className="section" id="education">
