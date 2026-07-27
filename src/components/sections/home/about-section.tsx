@@ -78,16 +78,6 @@ export function AboutSection() {
                                 </div>
                             </div>
 
-                            {/* Floating Active Badge */}
-                            <div className="glass absolute -bottom-4 -left-4 flex items-center gap-3 rounded-2xl px-4 py-3 shadow-2xl border border-white/10 z-30">
-                                <Sparkles className="h-4 w-4 text-cyan-400 animate-pulse" />
-                                <div>
-                                    <p className="text-xs font-semibold">Active Developer</p>
-                                    <p className="text-[10px] text-muted-foreground">
-                                        Code, Design & Hardware
-                                    </p>
-                                </div>
-                            </div>
                         </div>
                     </Reveal>
                 </div>
