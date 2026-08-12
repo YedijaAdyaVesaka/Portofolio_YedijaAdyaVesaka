@@ -6,20 +6,14 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Menu, X } from "lucide-react";
 
+import { LanguageToggle } from "@/components/layout/language-toggle";
 import { Logo } from "@/components/layout/logo";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { buttonVariants } from "@/components/ui/button-variants";
+import { useLanguage } from "@/context/language-context";
 import { useScrolled } from "@/hooks/use-scrolled";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
-
-const navLinks = [
-  { label: "Home", href: "/#top", targetId: "top" },
-  { label: "About", href: "/#about", targetId: "about" },
-  { label: "Experience", href: "/#experience", targetId: "experience" },
-  { label: "Projects", href: "/#projects", targetId: "projects" },
-  { label: "Contact", href: `https://wa.me/${siteConfig.whatsapp}`, targetId: "contact" },
-];
 
 const navItem =
   "flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium transition-colors";
@@ -29,10 +23,19 @@ const navItem =
  * Uses single-page anchor highlights when on home route.
  */
 export function Navbar() {
+  const { t } = useLanguage();
   const pathname = usePathname();
   const scrolled = useScrolled(24);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("top");
+
+  const navLinks = [
+    { label: t("nav.home"), href: "/#top", targetId: "top" },
+    { label: t("nav.about"), href: "/#about", targetId: "about" },
+    { label: t("nav.experience"), href: "/#experience", targetId: "experience" },
+    { label: t("nav.projects"), href: "/#projects", targetId: "projects" },
+    { label: t("nav.contact"), href: `https://wa.me/${siteConfig.whatsapp}`, targetId: "contact" },
+  ];
 
   // Track active section when on home page
   useEffect(() => {
@@ -144,6 +147,7 @@ export function Navbar() {
 
           {/* Right cluster */}
           <div className="flex items-center gap-2.5">
+            <LanguageToggle />
             <ThemeToggle />
             <a
               href={`https://wa.me/${siteConfig.whatsapp}`}
@@ -154,7 +158,7 @@ export function Navbar() {
                 "hidden lg:inline-flex"
               )}
             >
-              Hire Me
+              {t("nav.hire")}
             </a>
             <button
               type="button"

@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { SmoothScroll } from "@/components/layout/smooth-scroll";
 import { ThemeProvider } from "@/components/layout/theme-provider";
+import { LanguageProvider } from "@/context/language-context";
 import { inter, plusJakartaSans } from "@/lib/fonts";
 import { jsonLd, organizationSchema, websiteSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
@@ -67,20 +68,22 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           enableSystem
           disableTransitionOnChange
         >
-          {/* Keyboard users can jump straight to content */}
-          <a
-            href="#main"
-            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:text-white"
-          >
-            Skip to content
-          </a>
+          <LanguageProvider>
+            {/* Keyboard users can jump straight to content */}
+            <a
+              href="#main"
+              className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:text-white"
+            >
+              Skip to content
+            </a>
 
-          <SmoothScroll />
-          <Navbar />
-          <main id="main" className="relative">
-            {children}
-          </main>
-          <Footer />
+            <SmoothScroll />
+            <Navbar />
+            <main id="main" className="relative">
+              {children}
+            </main>
+            <Footer />
+          </LanguageProvider>
         </ThemeProvider>
 
         {/* Structured data: Organization + WebSite */}
