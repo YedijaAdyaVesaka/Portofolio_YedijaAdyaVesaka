@@ -6,7 +6,7 @@
 export const siteConfig = {
   name: "Yedija Adya Vesaka",
   shortName: "Yedija",
-  url: "https://yedijaadyave.vercel.app",
+  url: "https://yedijaadyavesaka.web.id",
   tagline: "Informatics Engineering & Creative Developer",
   description:
     "Yedija Adya Vesaka — Informatics Engineering graduate specializing in Web Development, Graphic Design, Game Development, and IoT solutions.",
