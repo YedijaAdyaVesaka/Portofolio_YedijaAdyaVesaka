@@ -6,8 +6,10 @@ import type { NextConfig } from "next";
  * with next/image without touching config again.
  */
 const nextConfig: NextConfig = {
+  output: "export",
   reactStrictMode: true,
   images: {
+    unoptimized: true,
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
