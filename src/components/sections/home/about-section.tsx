@@ -106,7 +106,7 @@ export function AboutSection() {
                     />
 
                     <Marquee duration="40s">
-                        {educationList.map((item) => (
+                        {educationList.map((item, idx) => (
                             <div
                                 key={item.title + item.company + item.year}
                                 className="h-[210px] w-[440px] shrink-0 rounded-3xl border border-border/80 bg-card/90 p-6 backdrop-blur shadow-md transition-all duration-300 hover:border-primary/50 hover:shadow-lg flex flex-col justify-between"
@@ -132,7 +132,7 @@ export function AboutSection() {
                                         <div className="flex-1 min-w-0">
                                             <div className="flex items-center justify-between gap-2">
                                                 <h3 className="text-lg font-bold tracking-tight text-foreground truncate">
-                                                    {item.title}
+                                                    {t(`edu.${idx}.title`)}
                                                 </h3>
                                                 <span className="inline-flex shrink-0 items-center gap-1 text-xs font-semibold text-muted-foreground">
                                                     <Calendar className="h-3.5 w-3.5" />
@@ -160,10 +160,10 @@ export function AboutSection() {
                                                 {t("edu.highlights.label")}
                                             </p>
                                             <ul className="space-y-1 text-xs text-muted-foreground">
-                                                {item.highlights.slice(0, 2).map((point) => (
+                                                {item.highlights.slice(0, 2).map((point, hIdx) => (
                                                     <li key={point} className="flex items-start gap-2 leading-tight line-clamp-1">
                                                         <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                                                        <span className="truncate">{point}</span>
+                                                        <span className="truncate">{t(`edu.${idx}.h.${hIdx}`)}</span>
                                                     </li>
                                                 ))}
                                             </ul>
@@ -204,13 +204,13 @@ export function AboutSection() {
                                                 )}
                                             </div>
                                             <h3 className="text-xl font-bold tracking-tight text-foreground md:text-2xl">
-                                                {item.title}
+                                                {t(`exp.${i}.title`)}
                                             </h3>
                                         </div>
                                     </div>
 
                                     <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
-                                        {item.description}
+                                        {t(`exp.${i}.desc`)}
                                     </p>
 
                                     {/* Key Highlights */}
@@ -220,10 +220,10 @@ export function AboutSection() {
                                                 {t("exp.highlights.label")}
                                             </p>
                                             <ul className="space-y-1.5 text-xs text-muted-foreground md:text-sm">
-                                                {item.highlights.map((highlight) => (
+                                                {item.highlights.map((highlight, hIdx) => (
                                                     <li key={highlight} className="flex items-start gap-2.5">
                                                         <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                                                        <span>{highlight}</span>
+                                                        <span>{t(`exp.${i}.h.${hIdx}`)}</span>
                                                     </li>
                                                 ))}
                                             </ul>

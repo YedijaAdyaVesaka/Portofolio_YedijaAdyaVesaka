@@ -201,7 +201,7 @@ export function PortfolioPreview() {
                             {project.category}
                           </span>
                           <p className="mt-1 text-sm font-semibold text-foreground dark:text-white/90 truncate max-w-[200px]">
-                            {project.title}
+                            {t(`project.${project.slug}.title`)}
                           </p>
                         </div>
                       </div>
@@ -213,7 +213,7 @@ export function PortfolioPreview() {
                     <div className="flex items-end justify-between gap-4">
                       <div>
                         <h3 className="text-2xl font-bold tracking-tight text-foreground dark:text-white transition-colors group-hover:text-blue-600 dark:group-hover:text-sky-400">
-                          {project.title}
+                          {t(`project.${project.slug}.title`)}
                         </h3>
                         <p className="mt-2 text-xs leading-relaxed text-muted-foreground dark:text-zinc-400 line-clamp-2">
                           {t(`project.${project.slug}.desc`)}
