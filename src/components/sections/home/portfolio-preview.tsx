@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight, ArrowUpRight, ExternalLink } from "lucide-react";
@@ -7,11 +8,13 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, ExternalLink } from "lucide-react"
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { useLanguage } from "@/context/language-context";
 import { projectCategories, projects } from "@/lib/data/projects";
 import { cn } from "@/lib/utils";
 
 /** Interactive Project Gallery section styled like heynesh.com with pointer scroll controls */
 export function PortfolioPreview() {
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isMouseDown, setIsMouseDown] = useState(false);
@@ -63,9 +66,9 @@ export function PortfolioPreview() {
 
       <div className="container">
         <SectionHeading
-          eyebrow="Featured Projects"
-          title="Selected Projects & Work"
-          description="A collection of web apps, IoT solutions, indie games, and UI/UX designs built to solve real-world problems."
+          eyebrow={t("projects.eyebrow")}
+          title={t("projects.title")}
+          description={t("projects.subtitle")}
         />
 
         {/* Category Pill Filters & Pointer Navigation Buttons */}
@@ -85,7 +88,7 @@ export function PortfolioPreview() {
                       : "border border-border/80 bg-card/60 text-muted-foreground hover:border-foreground/20 hover:text-foreground dark:border-zinc-800 dark:bg-zinc-950/60"
                   )}
                 >
-                  {category}
+                  {t(`projects.cat.${category}`)}
                   {isActive && (
                     <motion.span
                       layoutId="activeFilterGlow"
@@ -174,10 +177,12 @@ export function PortfolioPreview() {
                   <div className="relative z-10 my-auto flex items-center justify-center py-6">
                     {project.image ? (
                       <div className="relative flex aspect-video w-full max-w-[280px] overflow-hidden rounded-2xl border border-border/70 dark:border-white/15 shadow-md backdrop-blur-md transition-transform duration-500 group-hover:scale-105">
-                        <img
+                        <Image
                           src={project.image}
                           alt={project.title}
-                          className="h-full w-full object-cover"
+                          fill
+                          sizes="(max-width: 768px) 280px, 280px"
+                          className="object-cover"
                         />
                       </div>
                     ) : (
@@ -211,7 +216,7 @@ export function PortfolioPreview() {
                           {project.title}
                         </h3>
                         <p className="mt-2 text-xs leading-relaxed text-muted-foreground dark:text-zinc-400 line-clamp-2">
-                          {project.description}
+                          {t(`project.${project.slug}.desc`)}
                         </p>
                       </div>
 
@@ -246,7 +251,7 @@ export function PortfolioPreview() {
               "group rounded-full px-8 py-6 text-base font-semibold shadow-lg shadow-blue-500/20"
             )}
           >
-            Explore All Projects on GitHub
+            {t("projects.viewAll")}
             <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </Reveal>

@@ -1,27 +1,28 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Reveal } from "@/components/ui/reveal";
+import { useLanguage } from "@/context/language-context";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 /** Reusable closing call-to-action panel (used on most pages). */
 export function CTASection({
-  title = "Have an idea? Let's build something custom.",
-  description = "Reach out to discuss web engineering, graphic design, game development, or IoT systems projects.",
-  primaryLabel = "Get in touch",
   primaryHref = `https://wa.me/${siteConfig.whatsapp}`,
   secondaryLabel,
   secondaryHref,
 }: {
-  title?: string;
-  description?: string;
-  primaryLabel?: string;
   primaryHref?: string;
   secondaryLabel?: string;
   secondaryHref?: string;
 }) {
+  const { t } = useLanguage();
+  const title = t("cta.title");
+  const description = t("cta.description");
+  const primaryLabel = t("cta.button");
   return (
     <section id="contact" className="section">
       <div className="container">

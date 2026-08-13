@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button-variants";
+import { useLanguage } from "@/context/language-context";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -17,13 +18,6 @@ const fadeUpInView = (delay: number) => ({
   viewport: { once: true, margin: "-50px" },
   transition: { duration: 0.7, delay, ease: easing },
 });
-
-const words = [
-  "Informatics Engineering",
-  "Web Developer",
-  "Game Developer",
-  "Graphic Design",
-];
 
 export function PortofolioHeader() {
   return (
@@ -79,6 +73,8 @@ export function PortofolioHeader() {
 }
 
 export function Hero() {
+  const { t } = useLanguage();
+  const words = [t("hero.role.0"), t("hero.role.1"), t("hero.role.2"), t("hero.role.3")];
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -110,8 +106,7 @@ export function Hero() {
           {...fadeUpInView(0.1)}
           className="mb-5 inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/80 px-4 py-1.5 text-sm font-medium text-foreground shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/60"
         >
-          <span>{"Hi, I'm"}</span>
-          <span className="inline-block animate-bounce">👋</span>
+          <span>{t("hero.badge")}</span>
         </motion.div>
 
         {/* Title */}
@@ -153,7 +148,7 @@ export function Hero() {
               "group rounded-full px-8 py-6 text-base font-semibold shadow-lg shadow-indigo-500/20"
             )}
           >
-            View My Work
+            {t("hero.cta_projects")}
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
           <a
@@ -165,7 +160,7 @@ export function Hero() {
               "rounded-full px-8 py-6 text-base font-semibold border-border bg-background/80 hover:bg-accent text-foreground dark:border-zinc-800 dark:bg-zinc-950/60 dark:hover:bg-zinc-900/60 dark:text-white"
             )}
           >
-            Contact Me
+            {t("hero.cta_contact")}
           </a>
         </motion.div>
 

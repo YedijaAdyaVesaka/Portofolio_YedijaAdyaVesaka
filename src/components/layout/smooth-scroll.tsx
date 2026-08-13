@@ -9,7 +9,10 @@ import Lenis from "lenis";
  */
 export function SmoothScroll() {
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      window.matchMedia("(max-width: 768px)").matches
+    ) return;
 
     const lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
     let raf = 0;

@@ -1,12 +1,17 @@
+"use client";
+
+import Image from "next/image";
 import { Briefcase, Calendar, GraduationCap, MapPin, Sparkles } from "lucide-react";
 
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { experiences, educationList } from "@/lib/data/company";
 import { Marquee } from "@/components/ui/marquee";
+import { useLanguage } from "@/context/language-context";
 import { TechSkills } from "./tech-skills";
 
 export function AboutSection() {
+    const { t } = useLanguage();
     return (
         <div id="about" className="space-y-16 py-12 md:py-20">
             {/* ----------------------------- profile ----------------------------- */}
@@ -15,17 +20,18 @@ export function AboutSection() {
                     <Reveal direction="left">
                         <div>
                             <SectionHeading
-                                eyebrow="About Me"
+                                eyebrow={t("about.eyebrow")}
                                 title="Yedija Adya Vesaka"
                                 align="left"
                                 className="mb-2"
                             />
                             <div className="space-y-4">
+                                <p
+                                    className="text-muted-foreground leading-relaxed"
+                                    dangerouslySetInnerHTML={{ __html: t("about.bio1") }}
+                                />
                                 <p className="text-muted-foreground leading-relaxed">
-                                    Known as <span className="font-semibold text-foreground">Yave</span>, {"I'm"} a Fresh Graduate in Informatics Engineering with a deep passion for coding, design, and creative problem solving. I love turning complex ideas into elegant, performant digital experiences that feel as good as they look.
-                                </p>
-                                <p className="text-muted-foreground leading-relaxed">
-                                    From designing visually compelling interfaces and graphics to building scalable web applications and immersive game experiences, I thrive at the intersection of design, development, and interactivity.
+                                    {t("about.bio2")}
                                 </p>
                             </div>
 
@@ -54,10 +60,13 @@ export function AboutSection() {
                                     <div className="absolute top-3 left-1/2 -translate-x-1/2 z-20 h-3 w-10 rounded-full bg-zinc-950/80 border border-white/20 shadow-inner" />
 
                                     {/* Photo */}
-                                    <img
-                                        src="/images/1000335722.jpg"
+                                    <Image
+                                        src="/images/1000335722.webp"
                                         alt="Yedija Adya Vesaka"
-                                        className="h-full w-full object-cover object-[center_0%] scale-110 origin-top"
+                                        fill
+                                        priority
+                                        sizes="(max-width: 768px) 300px, 340px"
+                                        className="object-cover object-[center_0%] scale-110 origin-top"
                                     />
 
                                     {/* Bottom Badge Info Bar */}
@@ -65,10 +74,10 @@ export function AboutSection() {
                                         <div className="flex items-center justify-between">
                                             <div>
                                                 <p className="text-[10px] font-mono font-bold tracking-widest text-cyan-400 uppercase">
-                                                    INFORMATICS ENGINEER
+                                                    {t("about.badge.title").toUpperCase()}
                                                 </p>
                                                 <p className="text-base font-bold text-white">
-                                                    Yedija Adya Vesaka
+                                                    {t("about.badge.name")}
                                                 </p>
                                             </div>
                                             <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">
@@ -91,9 +100,9 @@ export function AboutSection() {
             <section className="section" id="education">
                 <div className="container">
                     <SectionHeading
-                        eyebrow="Academic background"
-                        title="Education"
-                        description="Degree, studies, and university milestones."
+                        eyebrow={t("edu.title")}
+                        title={t("edu.title")}
+                        description={t("edu.subtitle")}
                     />
 
                     <Marquee duration="40s">
@@ -106,11 +115,13 @@ export function AboutSection() {
                                     {/* Header with Graduation Icon / Institution Logo, Title, Location & Date */}
                                     <div className="flex items-start gap-4">
                                         {item.logoUrl ? (
-                                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white p-1.5 shadow-md border border-border/40 dark:bg-zinc-900">
-                                                <img
+                                            <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white p-1.5 shadow-md border border-border/40 dark:bg-zinc-900">
+                                                <Image
                                                     src={item.logoUrl}
                                                     alt={item.company || item.title}
-                                                    className="h-full w-full object-contain"
+                                                    fill
+                                                    sizes="48px"
+                                                    className="object-contain p-1.5"
                                                 />
                                             </div>
                                         ) : (
@@ -146,7 +157,7 @@ export function AboutSection() {
                                     {item.highlights && item.highlights.length > 0 && (
                                         <div className="space-y-1 pt-2 border-t border-border/60">
                                             <p className="text-[11px] font-bold uppercase tracking-wider text-foreground/90">
-                                                KEY HIGHLIGHTS:
+                                                {t("edu.highlights.label")}
                                             </p>
                                             <ul className="space-y-1 text-xs text-muted-foreground">
                                                 {item.highlights.slice(0, 2).map((point) => (
@@ -169,9 +180,9 @@ export function AboutSection() {
             <section className="section" id="experience">
                 <div className="container">
                     <SectionHeading
-                        eyebrow="Career & Achievements"
-                        title="Work Experience"
-                        description="Professional roles and key career highlights."
+                        eyebrow={t("exp.title")}
+                        title={t("exp.title")}
+                        description={t("exp.subtitle")}
                     />
 
                     <div className="mx-auto max-w-4xl space-y-8">
@@ -206,7 +217,7 @@ export function AboutSection() {
                                     {item.highlights && item.highlights.length > 0 && (
                                         <div className="mt-4 space-y-2">
                                             <p className="text-xs font-bold uppercase tracking-wider text-foreground">
-                                                KEY HIGHLIGHTS:
+                                                {t("exp.highlights.label")}
                                             </p>
                                             <ul className="space-y-1.5 text-xs text-muted-foreground md:text-sm">
                                                 {item.highlights.map((highlight) => (

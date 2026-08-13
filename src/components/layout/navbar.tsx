@@ -249,7 +249,7 @@ export function Navbar() {
                     "w-full"
                   )}
                 >
-                  Hire Me
+                  {t("nav.hire")}
                 </a>
               </div>
             </motion.aside>

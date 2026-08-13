@@ -1,12 +1,16 @@
+"use client";
+
 import { Marquee } from "@/components/ui/marquee";
+import { useLanguage } from "@/context/language-context";
 import { techSkills } from "@/lib/data/company";
 
 export function TechSkills() {
+    const { t } = useLanguage();
     return (
         <section className="py-8">
             <div className="container mb-6 text-center">
                 <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                    Technical Skills & Tools
+                    {t("skills.title")}
                 </p>
             </div>
             <Marquee duration="30s" reverse>

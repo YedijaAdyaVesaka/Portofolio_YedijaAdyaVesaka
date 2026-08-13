@@ -16,7 +16,7 @@ export const projects: Project[] = [
     outcome: "Real-time dashboard analytics & role-based access control",
     palette: ["#3B82F6", "#1D4ED8"],
     aspect: "aspect-[4/3]",
-    image: "/images/Konveksi Kita.png",
+    image: "/images/Konveksi Kita.webp",
     github: "https://github.com/YedijaAdyaVesaka/ERP-KonveksiKita",
   },
   {
@@ -31,7 +31,7 @@ export const projects: Project[] = [
     outcome: "Centralized record keeping & scheduling",
     palette: ["#8B5CF6", "#6D28D9"],
     aspect: "aspect-[3/4]",
-    image: "/images/Sistem Gereja.png",
+    image: "/images/Sistem Gereja.webp",
     github: "https://github.com/YedijaAdyaVesaka/Sistem_Informasi_Gereja",
   },
   {
@@ -46,7 +46,7 @@ export const projects: Project[] = [
     outcome: "Autonomous irrigation & remote control",
     palette: ["#10B981", "#047857"],
     aspect: "aspect-square",
-    image: "/images/Penyiram Tanaman Otomatis.png",
+    image: "/images/Penyiram Tanaman Otomatis.webp",
     github: "https://github.com/YedijaAdyaVesaka/Automatic-Plant-Watering-System",
   },
   {
@@ -61,7 +61,7 @@ export const projects: Project[] = [
     outcome: "Real-time environment visualization",
     palette: ["#0EA5E9", "#0369A1"],
     aspect: "aspect-[4/3]",
-    image: "/images/Pemantau Green House.png",
+    image: "/images/Pemantau Green House.webp",
     github: "https://github.com/YedijaAdyaVesaka/Greenhouse-Monitoring-System-Arduino-",
   },
   {
@@ -76,7 +76,7 @@ export const projects: Project[] = [
     outcome: "Playable WebGL/itch.io build",
     palette: ["#F59E0B", "#B45309"],
     aspect: "aspect-[3/4]",
-    image: "/images/FindLostLivestock.png",
+    image: "/images/FindLostLivestock.webp",
     link: "https://yedijaadyavesaka.itch.io/find-lost-livestock",
   },
   {
@@ -91,7 +91,7 @@ export const projects: Project[] = [
     outcome: "20+ feed posts, reels & product catalog designed",
     palette: ["#EC4899", "#BE185D"],
     aspect: "aspect-[4/3]",
-    image: "/images/RB Jatim.png",
+    image: "/images/RB Jatim.webp",
     link: "https://www.playbook.com/s/yedijaadyavesaka/portofolio/UfeSXcCjza72MvHbySZjxfeT",
   },
   {
@@ -106,7 +106,7 @@ export const projects: Project[] = [
     outcome: "Social media visual enhancement",
     palette: ["#EF4444", "#B91C1C"],
     aspect: "aspect-square",
-    image: "/images/RB Malang.png",
+    image: "/images/RB Malang.webp",
     link: "https://www.playbook.com/s/yedijaadyavesaka/portofolio/CBwRyGvBC1X3y5GtpYu6xkqN",
   },
   {
@@ -121,7 +121,7 @@ export const projects: Project[] = [
     outcome: "Interactive high-fidelity prototype & user flow",
     palette: ["#2563EB", "#0284C7"],
     aspect: "aspect-[16/9]",
-    image: "/images/Naik Bus.png",
+    image: "/images/Naik Bus.webp",
     link: "https://www.figma.com/proto/zkEwBTM43TmFBytSxMWenc/NaikBus.-Apps?node-id=363-1254&viewport=283%2C342%2C0.26&t=PvpMf409Wv5kGXTv-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=363%3A1243&page-id=363%3A1242&show-proto-sidebar=1",
   },
 ];

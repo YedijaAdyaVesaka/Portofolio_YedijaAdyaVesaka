@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import {
   Github,
@@ -7,19 +9,21 @@ import {
 } from "lucide-react";
 
 import { Logo } from "@/components/layout/logo";
+import { useLanguage } from "@/context/language-context";
 import { siteConfig } from "@/lib/site";
-
-const companyLinks = [
-  { label: "Home", href: "/#top" },
-  { label: "About", href: "/#about" },
-  { label: "Experience", href: "/#experience" },
-  { label: "Projects", href: "/#projects" },
-  { label: "Contact", href: `https://wa.me/${siteConfig.whatsapp}` },
-];
 
 /** Global footer: clean brand info, sitemap, socials and copyright bar. */
 export function Footer() {
+  const { t } = useLanguage();
   const year = new Date().getFullYear();
+
+  const companyLinks = [
+    { label: t("nav.home"), href: "/#top" },
+    { label: t("nav.about"), href: "/#about" },
+    { label: t("nav.experience"), href: "/#experience" },
+    { label: t("nav.projects"), href: "/#projects" },
+    { label: t("nav.contact"), href: `https://wa.me/${siteConfig.whatsapp}` },
+  ];
 
   return (
     <footer className="relative mt-8 overflow-hidden border-t border-border/60">
@@ -68,7 +72,7 @@ export function Footer() {
 
           <nav aria-label="Sitemap">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
-              Navigation
+              {t("footer.nav")}
             </h3>
             <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-3 md:flex-col md:space-y-3">
               {companyLinks.map((link) => (
@@ -99,14 +103,14 @@ export function Footer() {
         {/* Legal bar */}
         <div className="flex flex-col items-center justify-between gap-4 border-t border-border/60 py-7 text-sm text-muted-foreground md:flex-row">
           <p>
-            © {year} {siteConfig.name}. All rights reserved.
+            © {year} {siteConfig.name}. {t("footer.copyright")}
           </p>
           <p className="flex items-center gap-1.5">
-            Crafted in Malang, Indonesia
+            {t("footer.crafted")}
             <span aria-hidden className="text-primary">
               ◆
             </span>
-            Built with Next.js
+            {t("footer.built")}
           </p>
         </div>
       </div>
