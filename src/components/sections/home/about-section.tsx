@@ -318,23 +318,22 @@ export function AboutSection() {
                 <div className="p-6 md:p-8">
                     <h2 className="mb-6 text-lg font-bold text-foreground">{t("exp.btn.certificates")}</h2>
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                        {modalImages.map((src, idx) => (
-                            <button
-                                key={src}
-                                type="button"
-                                onClick={() => setLightboxIndex(idx)}
-                                className="group relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-white/10 bg-muted/30"
-                            >
-                                <Image
-                                    src={src}
-                                    alt={`Certificate ${idx + 1}`}
-                                    fill
-                                    sizes="(max-width: 640px) 90vw, 45vw"
-                                    className="object-contain transition-transform duration-300 group-hover:scale-105"
-                                    loading="lazy"
-                                />
-                            </button>
-                        ))}
+                        {modalImages.map((src, idx) =>
+                            src.endsWith(".pdf") ? (
+                                <div key={src} className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-white/10 bg-muted/30">
+                                    <iframe src={src} title={`Certificate ${idx + 1}`} className="h-full w-full" loading="lazy" />
+                                </div>
+                            ) : (
+                                <button
+                                    key={src}
+                                    type="button"
+                                    onClick={() => setLightboxIndex(idx)}
+                                    className="group relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-white/10 bg-muted/30"
+                                >
+                                    <Image src={src} alt={`Certificate ${idx + 1}`} fill sizes="(max-width: 640px) 90vw, 45vw" className="object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+                                </button>
+                            )
+                        )}
                     </div>
                 </div>
             </Modal>
@@ -354,7 +353,11 @@ export function AboutSection() {
                             </button>
                         )}
                         <div className="relative aspect-[4/3] w-full max-h-[75vh]">
-                            <Image src={modalImages[lightboxIndex]} alt={`Full ${lightboxIndex + 1}`} fill sizes="90vw" className="object-contain" priority />
+                            {modalImages[lightboxIndex].endsWith(".pdf") ? (
+                                <iframe src={modalImages[lightboxIndex]} title="Certificate" className="h-full w-full rounded-lg" />
+                            ) : (
+                                <Image src={modalImages[lightboxIndex]} alt={`Full ${lightboxIndex + 1}`} fill sizes="90vw" className="object-contain" priority />
+                            )}
                         </div>
                         {modalImages.length > 1 && (
                             <button type="button" onClick={() => setLightboxIndex((lightboxIndex + 1) % modalImages.length)} className="absolute right-2 top-1/2 z-10 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition-colors hover:bg-white/20">

@@ -41,7 +41,7 @@ export const experiences: TimelineItem[] = [
       "Ensured all transportation requirements ran on schedule throughout the event.",
     ],
     tags: ["Event Logistics", "Coordination", "Stakeholder Communication", "Vendor Management"],
-    certificates: ["/images/certificates/knf-coordinator-cert.webp"],
+    certificates: ["/images/certificates/knf-coordinator-cert.pdf"],
     documentation: ["/images/documentation/knf-doc-1.webp", "/images/documentation/knf-doc-2.webp", "/images/documentation/knf-doc-3.webp"],
     proofs: [
       {
