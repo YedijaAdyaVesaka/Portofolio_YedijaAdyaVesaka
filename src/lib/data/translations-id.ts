@@ -35,6 +35,9 @@ export const translationsId: Record<string, string> = {
   "exp.title": "Pengalaman Kerja & Organisasi",
   "exp.subtitle": "Perjalanan profesional saya dalam tech, desain, dan organisasi.",
   "exp.highlights.label": "PENCAPAIAN UTAMA:",
+  "exp.btn.certificates": "Galeri Sertifikat",
+  "exp.btn.documentation": "Dokumentasi Kegiatan",
+  "exp.lightbox.of": "dari",
 
   // Stats
   "stats.projects": "Proyek selesai",

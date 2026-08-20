@@ -41,6 +41,8 @@ export const experiences: TimelineItem[] = [
       "Ensured all transportation requirements ran on schedule throughout the event.",
     ],
     tags: ["Event Logistics", "Coordination", "Stakeholder Communication", "Vendor Management"],
+    certificates: ["/images/certificates/knf-coordinator-cert.webp"],
+    documentation: ["/images/documentation/knf-doc-1.webp", "/images/documentation/knf-doc-2.webp", "/images/documentation/knf-doc-3.webp"],
     proofs: [
       {
         type: "certificate",
@@ -67,6 +69,8 @@ export const experiences: TimelineItem[] = [
       "Crafted executive presentation & visual materials for C-level leadership (CEO & CFO).",
     ],
     tags: ["Figma", "Photoshop", "Branding", "Merchandise Design", "Social Media"],
+    certificates: ["/images/certificates/rb-jatim-cert.webp"],
+    documentation: ["/images/documentation/rb-jatim-doc-1.webp", "/images/documentation/rb-jatim-doc-2.webp", "/images/documentation/rb-jatim-doc-3.webp", "/images/documentation/rb-jatim-doc-4.webp", "/images/documentation/rb-jatim-doc-5.webp"],
     proofs: [
       {
         type: "certificate",
@@ -92,6 +96,8 @@ export const experiences: TimelineItem[] = [
       "Conducted product photography training to boost MSME visual branding quality.",
     ],
     tags: ["Visual Design", "Social Media", "Photography Training", "MSME Support"],
+    certificates: ["/images/certificates/rb-malang-cert.webp"],
+    documentation: ["/images/documentation/rb-malang-doc-1.webp", "/images/documentation/rb-malang-doc-2.webp"],
     proofs: [
       {
         type: "certificate",

@@ -1,17 +1,48 @@
 "use client";
 
+import { useCallback, useRef, useState } from "react";
 import Image from "next/image";
-import { Briefcase, Calendar, GraduationCap, MapPin, Sparkles } from "lucide-react";
+import { Briefcase, Calendar, Camera, ChevronLeft, ChevronRight, GraduationCap, ImageIcon, MapPin, Sparkles } from "lucide-react";
 
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { Modal } from "@/components/ui/modal";
 import { experiences, educationList } from "@/lib/data/company";
 import { Marquee } from "@/components/ui/marquee";
 import { useLanguage } from "@/context/language-context";
 import { TechSkills } from "./tech-skills";
 
+type GalleryModal = { type: "certificates" | "documentation"; expIndex: number } | null;
+
 export function AboutSection() {
     const { t } = useLanguage();
+    const [galleryModal, setGalleryModal] = useState<GalleryModal>(null);
+    const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+    const docScrollRef = useRef<HTMLDivElement>(null);
+    const [docScrollIdx, setDocScrollIdx] = useState(0);
+
+    const closeAll = useCallback(() => {
+        setGalleryModal(null);
+        setLightboxIndex(null);
+        setDocScrollIdx(0);
+    }, []);
+
+    /* images for current modal */
+    const modalImages = galleryModal
+        ? (galleryModal.type === "certificates"
+            ? experiences[galleryModal.expIndex]?.certificates
+            : experiences[galleryModal.expIndex]?.documentation) ?? []
+        : [];
+
+    /* horizontal doc scroll handler — snap & update index */
+    const onDocScroll = useCallback(() => {
+        const el = docScrollRef.current;
+        if (!el || !el.children.length) return;
+        const childW = (el.children[0] as HTMLElement).offsetWidth;
+        const gap = 16;
+        const idx = Math.round(el.scrollLeft / (childW + gap));
+        setDocScrollIdx(idx);
+    }, []);
     return (
         <div id="about" className="space-y-16 py-12 md:py-20">
             {/* ----------------------------- profile ----------------------------- */}
@@ -244,12 +275,135 @@ export function AboutSection() {
                                         </div>
                                     )}
 
+                                    {/* Gallery Buttons */}
+                                    {((item.certificates && item.certificates.length > 0) || (item.documentation && item.documentation.length > 0)) && (
+                                        <div className="mt-5 flex flex-wrap gap-2">
+                                            {item.certificates && item.certificates.length > 0 && (
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setGalleryModal({ type: "certificates", expIndex: i })}
+                                                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium text-foreground/90 backdrop-blur transition-colors hover:bg-white/10 hover:border-white/20"
+                                                >
+                                                    <ImageIcon className="h-3.5 w-3.5" />
+                                                    {t("exp.btn.certificates")}
+                                                </button>
+                                            )}
+                                            {item.documentation && item.documentation.length > 0 && (
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setGalleryModal({ type: "documentation", expIndex: i })}
+                                                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium text-foreground/90 backdrop-blur transition-colors hover:bg-white/10 hover:border-white/20"
+                                                >
+                                                    <Camera className="h-3.5 w-3.5" />
+                                                    {t("exp.btn.documentation")}
+                                                </button>
+                                            )}
+                                        </div>
+                                    )}
+
                                 </div>
                             </Reveal>
                         ))}
                     </div>
                 </div>
             </section>
+
+            {/* ========================= Certificate Grid Modal ========================= */}
+            <Modal
+                open={galleryModal?.type === "certificates"}
+                onClose={closeAll}
+                label={t("exp.btn.certificates")}
+                className="max-w-4xl rounded-2xl"
+            >
+                <div className="p-6 md:p-8">
+                    <h2 className="mb-6 text-lg font-bold text-foreground">{t("exp.btn.certificates")}</h2>
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                        {modalImages.map((src, idx) => (
+                            <button
+                                key={src}
+                                type="button"
+                                onClick={() => setLightboxIndex(idx)}
+                                className="group relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-white/10 bg-muted/30"
+                            >
+                                <Image
+                                    src={src}
+                                    alt={`Certificate ${idx + 1}`}
+                                    fill
+                                    sizes="(max-width: 640px) 90vw, 45vw"
+                                    className="object-contain transition-transform duration-300 group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            </Modal>
+
+            {/* ========================= Certificate Lightbox ========================= */}
+            <Modal
+                open={lightboxIndex !== null}
+                onClose={() => setLightboxIndex(null)}
+                label="Lightbox"
+                className="max-w-5xl rounded-2xl bg-black/90 p-0"
+            >
+                {lightboxIndex !== null && modalImages[lightboxIndex] && (
+                    <div className="relative flex items-center justify-center p-4 md:p-8">
+                        {modalImages.length > 1 && (
+                            <button type="button" onClick={() => setLightboxIndex((lightboxIndex - 1 + modalImages.length) % modalImages.length)} className="absolute left-2 top-1/2 z-10 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition-colors hover:bg-white/20">
+                                <ChevronLeft className="h-5 w-5" />
+                            </button>
+                        )}
+                        <div className="relative aspect-[4/3] w-full max-h-[75vh]">
+                            <Image src={modalImages[lightboxIndex]} alt={`Full ${lightboxIndex + 1}`} fill sizes="90vw" className="object-contain" priority />
+                        </div>
+                        {modalImages.length > 1 && (
+                            <button type="button" onClick={() => setLightboxIndex((lightboxIndex + 1) % modalImages.length)} className="absolute right-2 top-1/2 z-10 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition-colors hover:bg-white/20">
+                                <ChevronRight className="h-5 w-5" />
+                            </button>
+                        )}
+                        {modalImages.length > 1 && (
+                            <span className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-black/60 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur">
+                                {lightboxIndex + 1} {t("exp.lightbox.of")} {modalImages.length}
+                            </span>
+                        )}
+                    </div>
+                )}
+            </Modal>
+
+            {/* ======================== Documentation Modal ========================= */}
+            <Modal
+                open={galleryModal?.type === "documentation"}
+                onClose={closeAll}
+                label={t("exp.btn.documentation")}
+                className="max-w-4xl rounded-2xl"
+            >
+                <div className="p-6 md:p-8">
+                    <h2 className="mb-6 text-lg font-bold text-foreground">{t("exp.btn.documentation")}</h2>
+                    {modalImages.length === 1 ? (
+                        <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-muted/30">
+                            <Image src={modalImages[0]} alt="Documentation" fill sizes="90vw" className="object-contain" loading="lazy" />
+                        </div>
+                    ) : (
+                        <>
+                            <div
+                                ref={docScrollRef}
+                                onScroll={onDocScroll}
+                                data-lenis-prevent
+                                className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                            >
+                                {modalImages.map((src, idx) => (
+                                    <div key={src} className="relative aspect-video w-[85vw] max-w-[600px] shrink-0 snap-center overflow-hidden rounded-xl border border-white/10 bg-muted/30">
+                                        <Image src={src} alt={`Documentation ${idx + 1}`} fill sizes="(max-width: 768px) 85vw, 600px" className="object-contain" loading="lazy" />
+                                    </div>
+                                ))}
+                            </div>
+                            <p className="mt-3 text-center text-xs font-medium text-muted-foreground">
+                                {docScrollIdx + 1} / {modalImages.length}
+                            </p>
+                        </>
+                    )}
+                </div>
+            </Modal>
 
         </div>
     );

@@ -35,6 +35,9 @@ export const translationsEn: Record<string, string> = {
   "exp.title": "Work & Experience",
   "exp.subtitle": "My professional journey in tech, design, and organizations.",
   "exp.highlights.label": "KEY HIGHLIGHTS:",
+  "exp.btn.certificates": "Certificate Gallery",
+  "exp.btn.documentation": "Activity Documentation",
+  "exp.lightbox.of": "of",
 
   // Stats
   "stats.projects": "Projects completed",

@@ -110,6 +110,8 @@ export interface TimelineItem {
   highlights?: string[];
   tags?: string[];
   proofs?: ProofItem[];
+  certificates?: string[];
+  documentation?: string[];
 }
 
 export interface CompanyValue {
