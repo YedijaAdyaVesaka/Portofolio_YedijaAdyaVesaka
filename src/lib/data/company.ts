@@ -41,7 +41,7 @@ export const experiences: TimelineItem[] = [
       "Ensured all transportation requirements ran on schedule throughout the event.",
     ],
     tags: ["Event Logistics", "Coordination", "Stakeholder Communication", "Vendor Management"],
-    certificates: ["/images/certificates/knf-coordinator-cert.pdf"],
+    certificates: ["/images/certificates/Sertifikat PIC_KNF Vol.10.png"],
     documentation: ["/images/documentation/knf-doc-1.webp", "/images/documentation/knf-doc-2.webp", "/images/documentation/knf-doc-3.webp"],
     proofs: [
       {
@@ -49,7 +49,7 @@ export const experiences: TimelineItem[] = [
         title: "Certificate of Appreciation - Transport & Accommodation Coordinator",
         issuer: "Karya Nyata Festival Vol.10",
         date: "Sep 2024",
-        url: "#",
+        url: "/images/certificates/Sertifikat PIC_KNF Vol.10.png",
         palette: ["#2563EB", "#06B6D4"],
       },
     ],
@@ -69,7 +69,7 @@ export const experiences: TimelineItem[] = [
       "Crafted executive presentation & visual materials for C-level leadership (CEO & CFO).",
     ],
     tags: ["Figma", "Photoshop", "Branding", "Merchandise Design", "Social Media"],
-    certificates: ["/images/RB Jatim.webp"],
+    certificates: ["/images/certificates/Sertif RB Jatim.png"],
     documentation: ["/images/documentation/rb-jatim-doc-1.webp", "/images/documentation/rb-jatim-doc-2.webp", "/images/documentation/rb-jatim-doc-3.webp", "/images/documentation/rb-jatim-doc-4.webp", "/images/documentation/rb-jatim-doc-5.webp"],
     proofs: [
       {
@@ -96,7 +96,7 @@ export const experiences: TimelineItem[] = [
       "Conducted product photography training to boost MSME visual branding quality.",
     ],
     tags: ["Visual Design", "Social Media", "Photography Training", "MSME Support"],
-    certificates: ["/images/RB Malang.webp"],
+    certificates: ["/images/certificates/Sertif RB Malang.png"],
     documentation: ["/images/documentation/rb-malang-doc-1.webp", "/images/documentation/rb-malang-doc-2.webp"],
     proofs: [
       {
@@ -104,7 +104,7 @@ export const experiences: TimelineItem[] = [
         title: "Internship Certificate - Graphic Designer & Trainer",
         issuer: "Rumah BUMN Kota Malang",
         date: "Sep 2024",
-        url: "#",
+        url: "/images/certificates/Sertif RB Malang.png",
         image: "/images/RB Malang.webp",
         palette: ["#F59E0B", "#EF4444"],
       },
