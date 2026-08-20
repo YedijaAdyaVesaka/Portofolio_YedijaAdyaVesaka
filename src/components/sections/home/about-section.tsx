@@ -1,8 +1,8 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useState } from "react";
 import Image from "next/image";
-import { Briefcase, Calendar, Camera, ChevronLeft, ChevronRight, GraduationCap, ImageIcon, MapPin, Sparkles } from "lucide-react";
+import { Briefcase, Calendar, ChevronLeft, ChevronRight, GraduationCap, ImageIcon, MapPin, Sparkles } from "lucide-react";
 
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -12,37 +12,23 @@ import { Marquee } from "@/components/ui/marquee";
 import { useLanguage } from "@/context/language-context";
 import { TechSkills } from "./tech-skills";
 
-type GalleryModal = { type: "certificates" | "documentation"; expIndex: number } | null;
+type GalleryModal = { type: "certificates"; expIndex: number } | null;
 
 export function AboutSection() {
     const { t } = useLanguage();
     const [galleryModal, setGalleryModal] = useState<GalleryModal>(null);
     const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-    const docScrollRef = useRef<HTMLDivElement>(null);
-    const [docScrollIdx, setDocScrollIdx] = useState(0);
 
     const closeAll = useCallback(() => {
         setGalleryModal(null);
         setLightboxIndex(null);
-        setDocScrollIdx(0);
     }, []);
 
     /* images for current modal */
     const modalImages = galleryModal
-        ? (galleryModal.type === "certificates"
-            ? experiences[galleryModal.expIndex]?.certificates
-            : experiences[galleryModal.expIndex]?.documentation) ?? []
+        ? experiences[galleryModal.expIndex]?.certificates ?? []
         : [];
 
-    /* horizontal doc scroll handler — snap & update index */
-    const onDocScroll = useCallback(() => {
-        const el = docScrollRef.current;
-        if (!el || !el.children.length) return;
-        const childW = (el.children[0] as HTMLElement).offsetWidth;
-        const gap = 16;
-        const idx = Math.round(el.scrollLeft / (childW + gap));
-        setDocScrollIdx(idx);
-    }, []);
     return (
         <div id="about" className="space-y-16 py-12 md:py-20">
             {/* ----------------------------- profile ----------------------------- */}
@@ -276,28 +262,16 @@ export function AboutSection() {
                                     )}
 
                                     {/* Gallery Buttons */}
-                                    {((item.certificates && item.certificates.length > 0) || (item.documentation && item.documentation.length > 0)) && (
+                                    {item.certificates && item.certificates.length > 0 && (
                                         <div className="mt-5 flex flex-wrap gap-2">
-                                            {item.certificates && item.certificates.length > 0 && (
-                                                <button
-                                                    type="button"
-                                                    onClick={() => setGalleryModal({ type: "certificates", expIndex: i })}
-                                                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium text-foreground/90 backdrop-blur transition-colors hover:bg-white/10 hover:border-white/20"
-                                                >
-                                                    <ImageIcon className="h-3.5 w-3.5" />
-                                                    {t("exp.btn.certificates")}
-                                                </button>
-                                            )}
-                                            {item.documentation && item.documentation.length > 0 && (
-                                                <button
-                                                    type="button"
-                                                    onClick={() => setGalleryModal({ type: "documentation", expIndex: i })}
-                                                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium text-foreground/90 backdrop-blur transition-colors hover:bg-white/10 hover:border-white/20"
-                                                >
-                                                    <Camera className="h-3.5 w-3.5" />
-                                                    {t("exp.btn.documentation")}
-                                                </button>
-                                            )}
+                                            <button
+                                                type="button"
+                                                onClick={() => setGalleryModal({ type: "certificates", expIndex: i })}
+                                                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium text-foreground/90 backdrop-blur transition-colors hover:bg-white/10 hover:border-white/20"
+                                            >
+                                                <ImageIcon className="h-3.5 w-3.5" />
+                                                {t("exp.btn.certificates")}
+                                            </button>
                                         </div>
                                     )}
 
@@ -371,41 +345,6 @@ export function AboutSection() {
                         )}
                     </div>
                 )}
-            </Modal>
-
-            {/* ======================== Documentation Modal ========================= */}
-            <Modal
-                open={galleryModal?.type === "documentation"}
-                onClose={closeAll}
-                label={t("exp.btn.documentation")}
-                className="max-w-4xl rounded-2xl"
-            >
-                <div className="p-6 md:p-8">
-                    <h2 className="mb-6 text-lg font-bold text-foreground">{t("exp.btn.documentation")}</h2>
-                    {modalImages.length === 1 ? (
-                        <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-muted/30">
-                            <Image src={modalImages[0]} alt="Documentation" fill sizes="90vw" className="object-contain" loading="lazy" />
-                        </div>
-                    ) : (
-                        <>
-                            <div
-                                ref={docScrollRef}
-                                onScroll={onDocScroll}
-                                data-lenis-prevent
-                                className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-                            >
-                                {modalImages.map((src, idx) => (
-                                    <div key={src} className="relative aspect-video w-[85vw] max-w-[600px] shrink-0 snap-center overflow-hidden rounded-xl border border-white/10 bg-muted/30">
-                                        <Image src={src} alt={`Documentation ${idx + 1}`} fill sizes="(max-width: 768px) 85vw, 600px" className="object-contain" loading="lazy" />
-                                    </div>
-                                ))}
-                            </div>
-                            <p className="mt-3 text-center text-xs font-medium text-muted-foreground">
-                                {docScrollIdx + 1} / {modalImages.length}
-                            </p>
-                        </>
-                    )}
-                </div>
             </Modal>
 
         </div>
