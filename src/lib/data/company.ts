@@ -42,8 +42,7 @@ export const experiences: TimelineItem[] = [
     ],
     tags: ["Event Logistics", "Coordination", "Stakeholder Communication", "Vendor Management"],
     certificates: ["/images/certificates/Sertifikat PIC_KNF Vol.10.png"],
-    documentation: ["/images/documentation/knf-doc-1.webp", "/images/documentation/knf-doc-2.webp", "/images/documentation/knf-doc-3.webp"],
-    photos: ["/images/photos/KARYA NYATA FESTIVAL 1.png"],
+    documentation: ["/images/photos/KARYA NYATA FESTIVAL 1.png"],
     proofs: [
       {
         type: "certificate",
