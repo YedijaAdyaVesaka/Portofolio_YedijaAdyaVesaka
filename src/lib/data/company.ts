@@ -75,6 +75,7 @@ export const experiences: TimelineItem[] = [
       "/images/photos/RB JATIM 2.jpg",
       "/images/photos/RB JATIM 3.jpg",
       "/images/photos/RB JATIM 4.jpg",
+      "/images/photos/RB JATIM 5.jpg",
     ],
     proofs: [
       {
@@ -109,6 +110,7 @@ export const experiences: TimelineItem[] = [
       "/images/photos/RB MALANG 4.jpg",
       "/images/photos/RB MALANG 5.jpg",
       "/images/photos/RB MALANG 6.png",
+      "/images/photos/RB MALANG 7.jpg",
     ],
     proofs: [
       {
