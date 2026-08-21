@@ -37,6 +37,7 @@ export const translationsEn: Record<string, string> = {
   "exp.highlights.label": "KEY HIGHLIGHTS:",
   "exp.btn.certificates": "Certificate Gallery",
   "exp.btn.documentation": "Activity Documentation",
+  "exp.btn.photos": "Activity Photos",
   "exp.lightbox.of": "of",
 
   // Stats

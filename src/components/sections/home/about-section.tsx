@@ -12,7 +12,7 @@ import { Marquee } from "@/components/ui/marquee";
 import { useLanguage } from "@/context/language-context";
 import { TechSkills } from "./tech-skills";
 
-type GalleryModal = { type: "certificates"; expIndex: number } | null;
+type GalleryModal = { type: "certificates" | "documentation" | "photos"; expIndex: number } | null;
 
 export function AboutSection() {
     const { t } = useLanguage();
@@ -26,7 +26,11 @@ export function AboutSection() {
 
     /* images for current modal */
     const modalImages = galleryModal
-        ? experiences[galleryModal.expIndex]?.certificates ?? []
+        ? (galleryModal.type === "photos"
+            ? experiences[galleryModal.expIndex]?.photos
+            : galleryModal.type === "documentation"
+            ? experiences[galleryModal.expIndex]?.documentation
+            : experiences[galleryModal.expIndex]?.certificates) ?? []
         : [];
 
     return (
@@ -262,16 +266,38 @@ export function AboutSection() {
                                     )}
 
                                     {/* Gallery Buttons */}
-                                    {item.certificates && item.certificates.length > 0 && (
+                                    {((item.certificates && item.certificates.length > 0) || (item.documentation && item.documentation.length > 0) || (item.photos && item.photos.length > 0)) && (
                                         <div className="mt-5 flex flex-wrap gap-2">
-                                            <button
-                                                type="button"
-                                                onClick={() => setGalleryModal({ type: "certificates", expIndex: i })}
-                                                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium text-foreground/90 backdrop-blur transition-colors hover:bg-white/10 hover:border-white/20"
-                                            >
-                                                <ImageIcon className="h-3.5 w-3.5" />
-                                                {t("exp.btn.certificates")}
-                                            </button>
+                                            {item.certificates && item.certificates.length > 0 && (
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setGalleryModal({ type: "certificates", expIndex: i })}
+                                                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium text-foreground/90 backdrop-blur transition-colors hover:bg-white/10 hover:border-white/20"
+                                                >
+                                                    <ImageIcon className="h-3.5 w-3.5" />
+                                                    {t("exp.btn.certificates")}
+                                                </button>
+                                            )}
+                                            {item.documentation && item.documentation.length > 0 && (
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setGalleryModal({ type: "documentation", expIndex: i })}
+                                                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium text-foreground/90 backdrop-blur transition-colors hover:bg-white/10 hover:border-white/20"
+                                                >
+                                                    <ImageIcon className="h-3.5 w-3.5" />
+                                                    {t("exp.btn.documentation")}
+                                                </button>
+                                            )}
+                                            {item.photos && item.photos.length > 0 && (
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setGalleryModal({ type: "photos", expIndex: i })}
+                                                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium text-foreground/90 backdrop-blur transition-colors hover:bg-white/10 hover:border-white/20"
+                                                >
+                                                    <ImageIcon className="h-3.5 w-3.5" />
+                                                    {t("exp.btn.photos")}
+                                                </button>
+                                            )}
                                         </div>
                                     )}
 
@@ -282,15 +308,15 @@ export function AboutSection() {
                 </div>
             </section>
 
-            {/* ========================= Certificate Grid Modal ========================= */}
+            {/* ========================= Gallery Grid Modal (certificates / documentation / photos) ========================= */}
             <Modal
-                open={galleryModal?.type === "certificates"}
+                open={galleryModal !== null}
                 onClose={closeAll}
-                label={t("exp.btn.certificates")}
+                label={galleryModal?.type === "photos" ? t("exp.btn.photos") : galleryModal?.type === "documentation" ? t("exp.btn.documentation") : t("exp.btn.certificates")}
                 className="max-w-4xl rounded-2xl"
             >
                 <div className="p-6 md:p-8">
-                    <h2 className="mb-6 text-lg font-bold text-foreground">{t("exp.btn.certificates")}</h2>
+                    <h2 className="mb-6 text-lg font-bold text-foreground">{galleryModal?.type === "photos" ? t("exp.btn.photos") : galleryModal?.type === "documentation" ? t("exp.btn.documentation") : t("exp.btn.certificates")}</h2>
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                         {modalImages.map((src, idx) =>
                             src.endsWith(".pdf") ? (

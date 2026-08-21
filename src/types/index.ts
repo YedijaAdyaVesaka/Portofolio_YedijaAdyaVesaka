@@ -112,6 +112,7 @@ export interface TimelineItem {
   proofs?: ProofItem[];
   certificates?: string[];
   documentation?: string[];
+  photos?: string[];
 }
 
 export interface CompanyValue {

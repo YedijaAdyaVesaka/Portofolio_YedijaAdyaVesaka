@@ -37,6 +37,7 @@ export const translationsId: Record<string, string> = {
   "exp.highlights.label": "PENCAPAIAN UTAMA:",
   "exp.btn.certificates": "Galeri Sertifikat",
   "exp.btn.documentation": "Dokumentasi Kegiatan",
+  "exp.btn.photos": "Foto Kegiatan",
   "exp.lightbox.of": "dari",
 
   // Stats
