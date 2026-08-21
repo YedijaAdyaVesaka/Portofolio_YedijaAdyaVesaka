@@ -70,7 +70,8 @@ export const experiences: TimelineItem[] = [
     ],
     tags: ["Figma", "Photoshop", "Branding", "Merchandise Design", "Social Media"],
     certificates: ["/images/certificates/Sertif RB Jatim.png"],
-    documentation: ["/images/documentation/rb-jatim-doc-1.webp", "/images/documentation/rb-jatim-doc-2.webp", "/images/documentation/rb-jatim-doc-3.webp", "/images/documentation/rb-jatim-doc-4.webp", "/images/documentation/rb-jatim-doc-5.webp"],
+    // ponytail: placeholder — replace with actual documentation photos when available
+    documentation: ["/images/RB Jatim.webp"],
     proofs: [
       {
         type: "certificate",
@@ -97,7 +98,8 @@ export const experiences: TimelineItem[] = [
     ],
     tags: ["Visual Design", "Social Media", "Photography Training", "MSME Support"],
     certificates: ["/images/certificates/Sertif RB Malang.png"],
-    documentation: ["/images/documentation/rb-malang-doc-1.webp", "/images/documentation/rb-malang-doc-2.webp"],
+    // ponytail: placeholder — replace with actual documentation photos when available
+    documentation: ["/images/RB Malang.webp"],
     proofs: [
       {
         type: "certificate",
