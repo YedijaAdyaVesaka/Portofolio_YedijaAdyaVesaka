@@ -296,7 +296,7 @@ export function AboutSection() {
                 </div>
             </section>
 
-            {/* ========================= Gallery Grid Modal (certificates / documentation) ========================= */}
+            {/* ========================= Gallery Modal (certificates / documentation) ========================= */}
             <Modal
                 open={galleryModal !== null}
                 onClose={closeAll}
@@ -304,25 +304,51 @@ export function AboutSection() {
                 className="max-w-4xl rounded-2xl"
             >
                 <div className="p-6 md:p-8">
-                    <h2 className="mb-6 text-lg font-bold text-foreground">{galleryModal?.type === "documentation" ? t("exp.btn.documentation") : t("exp.btn.certificates")}</h2>
-                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                        {modalImages.map((src, idx) =>
-                            src.endsWith(".pdf") ? (
-                                <div key={src} className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-white/10 bg-muted/30">
-                                    <iframe src={src} title={`Certificate ${idx + 1}`} className="h-full w-full" loading="lazy" />
-                                </div>
-                            ) : (
-                                <button
-                                    key={src}
-                                    type="button"
-                                    onClick={() => setLightboxIndex(idx)}
-                                    className="group relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-white/10 bg-muted/30"
-                                >
-                                    <Image src={src} alt={`Certificate ${idx + 1}`} fill sizes="(max-width: 640px) 90vw, 45vw" className="object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-                                </button>
-                            )
+                    <h2 className="mb-6 text-lg font-bold text-foreground">
+                        {galleryModal?.type === "documentation" ? t("exp.btn.documentation") : t("exp.btn.certificates")}
+                        {modalImages.length > 1 && (
+                            <span className="ml-2 text-sm font-normal text-muted-foreground">({modalImages.length})</span>
                         )}
-                    </div>
+                    </h2>
+
+                    {modalImages.length <= 1 ? (
+                        /* Single image — simple grid */
+                        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                            {modalImages.map((src, idx) =>
+                                src.endsWith(".pdf") ? (
+                                    <div key={src} className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-white/10 bg-muted/30">
+                                        <iframe src={src} title={`Certificate ${idx + 1}`} className="h-full w-full" loading="lazy" />
+                                    </div>
+                                ) : (
+                                    <button key={src} type="button" onClick={() => setLightboxIndex(idx)} className="group relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-white/10 bg-muted/30">
+                                        <Image src={src} alt={`Photo ${idx + 1}`} fill sizes="(max-width: 640px) 90vw, 45vw" className="object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+                                    </button>
+                                )
+                            )}
+                        </div>
+                    ) : (
+                        /* Multiple images — horizontal scroll carousel */
+                        <div className="relative group/carousel">
+                            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/20 hover:scrollbar-thumb-white/40">
+                                {modalImages.map((src, idx) => (
+                                    <button
+                                        key={src}
+                                        type="button"
+                                        onClick={() => setLightboxIndex(idx)}
+                                        className="group relative aspect-[4/3] w-[80%] flex-shrink-0 snap-center overflow-hidden rounded-xl border border-white/10 bg-muted/30 sm:w-[60%] md:w-[48%]"
+                                    >
+                                        <Image src={src} alt={`Photo ${idx + 1}`} fill sizes="(max-width: 640px) 80vw, (max-width: 768px) 60vw, 45vw" className="object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+                                        <span className="absolute bottom-2 right-2 rounded-full bg-black/60 px-2.5 py-0.5 text-[10px] font-medium text-white/80 backdrop-blur">
+                                            {idx + 1}/{modalImages.length}
+                                        </span>
+                                    </button>
+                                ))}
+                            </div>
+                            {/* Scroll hint gradients */}
+                            <div className="pointer-events-none absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-background to-transparent" />
+                            <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-background to-transparent" />
+                        </div>
+                    )}
                 </div>
             </Modal>
 
