@@ -131,6 +131,18 @@ export const translationsId: Record<string, string> = {
   "exp.2.h.1": "Membuat konten media sosial yang menarik (feed dan Instagram reels).",
   "exp.2.h.2": "Mengadakan pelatihan fotografi produk untuk meningkatkan kualitas branding visual UMKM.",
 
+  "exp.3.title": "Instruktur & Asisten Laboratorium",
+  "exp.3.desc":
+    "Mendukung operasional laboratorium komputer dan pelaksanaan praktikum dengan memastikan kesiapan workstation, sistem operasi, aplikasi, dan jaringan lokal. Memberikan dukungan teknis kepada mahasiswa serta membantu dosen dalam kegiatan pembelajaran Multimedia, Pengolahan Citra Digital, Animasi, dan Game.",
+  "exp.3.h.0": "Technical Operations: Computer & Workstation Maintenance",
+  "exp.3.h.1": "Technical Operations: Software Installation & Troubleshooting",
+  "exp.3.h.2": "Technical Operations: Local Network Support",
+  "exp.3.h.3": "Technical Operations: Remote Technical Assistance",
+  "exp.3.h.4": "Instruction & Mentoring: Multimedia & Digital Image Processing",
+  "exp.3.h.5": "Instruction & Mentoring: Animation & Game Practicum",
+  "exp.3.h.6": "Instruction & Mentoring: Student Technical Guidance",
+  "exp.3.h.7": "Instruction & Mentoring: Practicum Report Assistance",
+
   // Education items
   "edu.0.title": "Teknik Informatika",
   "edu.0.h.0": "IPK 3,7 / 4,0 — berfokus pada sistem web, IoT, dan pengembangan game.",

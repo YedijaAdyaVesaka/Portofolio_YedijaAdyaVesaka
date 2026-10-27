@@ -131,6 +131,18 @@ export const translationsEn: Record<string, string> = {
   "exp.2.h.1": "Created engaging social media content (feeds and Instagram reels).",
   "exp.2.h.2": "Conducted product photography training to boost MSME visual branding quality.",
 
+  "exp.3.title": "Instructor & Laboratory Assistant",
+  "exp.3.desc":
+    "Supported computer laboratory operations and practicum delivery by ensuring workstation readiness, operating systems, applications, and local networking. Provided technical support to students and assisted lecturers in Multimedia, Digital Image Processing, Animation, and Game courses.",
+  "exp.3.h.0": "Technical Operations: Computer & Workstation Maintenance",
+  "exp.3.h.1": "Technical Operations: Software Installation & Troubleshooting",
+  "exp.3.h.2": "Technical Operations: Local Network Support",
+  "exp.3.h.3": "Technical Operations: Remote Technical Assistance",
+  "exp.3.h.4": "Instruction & Mentoring: Multimedia & Digital Image Processing",
+  "exp.3.h.5": "Instruction & Mentoring: Animation & Game Practicum",
+  "exp.3.h.6": "Instruction & Mentoring: Student Technical Guidance",
+  "exp.3.h.7": "Instruction & Mentoring: Practicum Report Assistance",
+
   // Education items
   "edu.0.title": "Informatics Engineering",
   "edu.0.h.0": "GPA 3.7 / 4.0 — focusing on web systems, IoT, and game development.",

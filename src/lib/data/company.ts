@@ -124,6 +124,26 @@ export const experiences: TimelineItem[] = [
       },
     ],
   },
+  // ponytail: No certificates/documentation media provided; add when images are uploaded.
+  {
+    year: "Mar 2022 — Jul 2024",
+    title: "Instructor & Laboratory Assistant",
+    company: "Laboratorium Game, Animasi, Multimedia, dan Pengolahan Citra — ITN Malang",
+    location: "Malang, Indonesia",
+    description:
+      "Supported computer laboratory operations and practicum delivery by ensuring workstation readiness, operating systems, applications, and local networking. Provided technical support to students and assisted lecturers in Multimedia, Digital Image Processing, Animation, and Game courses.",
+    highlights: [
+      "Technical Operations: Computer & Workstation Maintenance",
+      "Technical Operations: Software Installation & Troubleshooting",
+      "Technical Operations: Local Network Support",
+      "Technical Operations: Remote Technical Assistance",
+      "Instruction & Mentoring: Multimedia & Digital Image Processing",
+      "Instruction & Mentoring: Animation & Game Practicum",
+      "Instruction & Mentoring: Student Technical Guidance",
+      "Instruction & Mentoring: Practicum Report Assistance",
+    ],
+    tags: ["Windows/Linux", "TeamViewer", "AnyDesk", "Local Networking"],
+  },
 ];
 
 export const educationList: TimelineItem[] = [
