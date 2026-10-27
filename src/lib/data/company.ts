@@ -220,9 +220,12 @@ export const achievements: Achievement[] = [
 ];
 
 export const techSkills = [
+  { name: "React.js", category: "frontend", iconUrl: "https://api.iconify.design/logos:react.svg" },
+  { name: "React Native", category: "mobile", iconUrl: "https://api.iconify.design/logos:react.svg" },
   { name: "PHP", category: "backend", iconUrl: "https://api.iconify.design/logos:php.svg" },
   { name: "Laravel", category: "backend", iconUrl: "https://api.iconify.design/logos:laravel.svg" },
   { name: "MySQL", category: "database", iconUrl: "https://api.iconify.design/logos:mysql.svg" },
+  { name: "Firebase", category: "backend", iconUrl: "https://api.iconify.design/logos:firebase.svg" },
   { name: "Git", category: "tools", iconUrl: "https://api.iconify.design/logos:git-icon.svg" },
   { name: "C#", category: "language", iconUrl: "https://api.iconify.design/logos:c-sharp.svg" },
   { name: "Unity", category: "gamedev", iconUrl: "https://api.iconify.design/logos:unity.svg" },
