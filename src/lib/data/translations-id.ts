@@ -79,7 +79,7 @@ export const translationsId: Record<string, string> = {
   "project.farma-mobile-app.client": "Proyek Pribadi",
   "project.farma-mobile-app.outcome": "Aplikasi mobile lintas platform dengan backend Firebase real-time",
   "project.farma-mobile-app.desc":
-    "Aplikasi mobile berbasis React Native dan Firebase untuk edukasi obat-obatan, katalog produk kesehatan, serta manajemen artikel dan blog perawatan tubuh secara real-time.",
+    "Aplikasi mobile berbasis React.js dan React Native dengan integrasi Firebase untuk edukasi obat-obatan, katalog produk kesehatan, serta manajemen artikel dan blog perawatan tubuh secara real-time.",
 
   "project.automatic-plant-watering-system.title": "Sistem Penyiram Tanaman Otomatis",
   "project.automatic-plant-watering-system.client": "Proyek IoT",

@@ -79,7 +79,7 @@ export const translationsEn: Record<string, string> = {
   "project.farma-mobile-app.client": "Personal Project",
   "project.farma-mobile-app.outcome": "Cross-platform mobile app with real-time Firebase backend",
   "project.farma-mobile-app.desc":
-    "A React Native and Firebase mobile health application for medicine education, healthcare product catalogs, and real-time health article and blog management.",
+    "A mobile application built with React.js and React Native for medicine education, healthcare product catalogs, and real-time health article and blog management powered by Firebase.",
 
   "project.automatic-plant-watering-system.title": "Automatic Plant Watering System",
   "project.automatic-plant-watering-system.client": "IoT Project",

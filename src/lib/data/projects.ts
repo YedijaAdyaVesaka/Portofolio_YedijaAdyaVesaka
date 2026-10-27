@@ -41,8 +41,8 @@ export const projects: Project[] = [
     category: "Mobile",
     year: 2023,
     description:
-      "A React Native mobile application for health information, medicine recommendations, and real-time health blog management powered by Firebase Authentication, Firestore, and Cloud Storage.",
-    tags: ["React Native", "Firebase", "JavaScript", "Mobile App"],
+      "A mobile application built with React.js and React Native for health information, medicine recommendations, and real-time health blog management powered by Firebase Authentication, Firestore, and Cloud Storage.",
+    tags: ["React.js", "React Native", "Firebase", "JavaScript"],
     outcome: "Cross-platform mobile app with real-time Firebase backend",
     palette: ["#10B981", "#059669"],
     aspect: "aspect-[4/3]",
