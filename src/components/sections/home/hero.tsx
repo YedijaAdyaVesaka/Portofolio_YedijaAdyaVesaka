@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button-variants";
+import TechText from "@/components/ui/tech-text";
 import { useLanguage } from "@/context/language-context";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -18,6 +19,48 @@ const fadeUpInView = (delay: number) => ({
   viewport: { once: true, margin: "-50px" },
   transition: { duration: 0.7, delay, ease: easing },
 });
+
+function PortoTechBadge({
+  text,
+  bgClass,
+  paddingClass,
+  accentColor,
+}: {
+  text: string;
+  bgClass: string;
+  paddingClass: string;
+  accentColor: string;
+}) {
+  return (
+    <div
+      className={`relative z-10 block rounded-3xl ${bgClass} ${paddingClass} text-white shadow-2xl transition-all duration-300 hover:scale-105`}
+    >
+      <span className="invisible block select-none pointer-events-none" aria-hidden="true">
+        {text}
+      </span>
+      <div className="absolute inset-0 flex items-center justify-center">
+        <TechText
+          text={text}
+          color="#ffffff"
+          accentColor={accentColor}
+          fontWeight={900}
+          fontSize={140}
+          labels={false}
+          selection={false}
+          lineStyle="dashed"
+          dashLength={4}
+          dashGap={2}
+          strokeWidth={2}
+          specks={12}
+          draggable={true}
+          bounce={0.4}
+          sweep={true}
+          className="h-full w-full"
+        />
+      </div>
+    </div>
+  );
+}
 
 export function PortofolioHeader() {
   return (
@@ -42,9 +85,12 @@ export function PortofolioHeader() {
         >
           {/* Top Line: PORTO with tilted background badge */}
           <div className="relative inline-block -rotate-3 text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
-            <span className="relative z-10 block rounded-3xl bg-[#2B66FF] px-7 py-2 text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-blue-500/30">
-              PORTO
-            </span>
+            <PortoTechBadge
+              text="PORTO"
+              bgClass="bg-[#2B66FF]"
+              paddingClass="px-7 py-2"
+              accentColor="#67e8f9"
+            />
             {/* Code Icon on top right */}
             <span className="absolute -right-8 -top-3 z-20 flex h-10 w-10 rotate-12 items-center justify-center rounded-xl bg-[#4BBBEB] text-white shadow-lg transition-transform duration-300 hover:rotate-45 hover:scale-110 sm:-right-12 sm:-top-4 sm:h-14 sm:w-14">
               <svg className="h-6 w-6 stroke-[2.5] sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -62,9 +108,12 @@ export function PortofolioHeader() {
               </svg>
             </span>
             {/* FOLIO badge/text */}
-            <span className="rounded-3xl bg-[#0092E0] px-8 py-2 text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-cyan-500/30">
-              FOLIO
-            </span>
+            <PortoTechBadge
+              text="FOLIO"
+              bgClass="bg-[#0092E0]"
+              paddingClass="px-8 py-2"
+              accentColor="#e0f2fe"
+            />
           </div>
         </motion.div>
       </div>
