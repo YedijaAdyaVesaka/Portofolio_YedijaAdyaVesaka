@@ -6,7 +6,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button-variants";
-import TechText from "@/components/ui/tech-text";
 import { useLanguage } from "@/context/language-context";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -19,36 +18,6 @@ const fadeUpInView = (delay: number) => ({
   viewport: { once: true, margin: "-50px" },
   transition: { duration: 0.7, delay, ease: easing },
 });
-
-function PortoBadge({
-  text,
-  bgClass,
-  accentColor,
-}: {
-  text: string;
-  bgClass: string;
-  accentColor: string;
-}) {
-  return (
-    <div
-      className={`relative z-10 flex h-[75px] w-[240px] items-center justify-center rounded-3xl ${bgClass} px-4 py-2 text-white shadow-2xl sm:h-[110px] sm:w-[360px] md:h-[135px] md:w-[460px] lg:h-[155px] lg:w-[540px]`}
-    >
-      <TechText
-        text={text}
-        color="#ffffff"
-        accentColor={accentColor}
-        fontSize={160}
-        fontWeight={900}
-        fontFamily="var(--font-plus-jakarta), sans-serif"
-        reach={130}
-        dashLength={5}
-        dashGap={3}
-        strokeWidth={2}
-        className="h-full w-full"
-      />
-    </div>
-  );
-}
 
 export function PortofolioHeader() {
   return (
@@ -72,10 +41,12 @@ export function PortofolioHeader() {
           className="relative select-none font-[family-name:var(--font-plus-jakarta)] font-black tracking-tight"
         >
           {/* Top Line: PORTO with tilted background badge */}
-          <div className="relative inline-block -rotate-3">
-            <PortoBadge text="PORTO" bgClass="bg-[#2B66FF]" accentColor="#a5f3fc" />
+          <div className="relative inline-block -rotate-3 text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
+            <span className="relative z-10 block rounded-3xl bg-[#2B66FF] px-7 py-2 text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-blue-500/30">
+              PORTO
+            </span>
             {/* Code Icon on top right */}
-            <span className="absolute -right-8 -top-3 z-20 flex h-10 w-10 rotate-12 items-center justify-center rounded-xl bg-[#4BBBEB] text-white shadow-lg sm:-right-12 sm:-top-4 sm:h-14 sm:w-14">
+            <span className="absolute -right-8 -top-3 z-20 flex h-10 w-10 rotate-12 items-center justify-center rounded-xl bg-[#4BBBEB] text-white shadow-lg transition-transform duration-300 hover:rotate-45 hover:scale-110 sm:-right-12 sm:-top-4 sm:h-14 sm:w-14">
               <svg className="h-6 w-6 stroke-[2.5] sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
               </svg>
@@ -83,15 +54,17 @@ export function PortofolioHeader() {
           </div>
 
           {/* Bottom Line: FOLIO with pen icon */}
-          <div className="relative mt-3 flex items-center justify-center gap-3 sm:mt-5 sm:gap-4">
+          <div className="relative mt-3 flex items-center justify-center gap-4 text-5xl sm:text-7xl md:text-8xl lg:text-9xl sm:mt-5">
             {/* Pen Tool Icon */}
-            <span className="flex h-12 w-12 -rotate-12 items-center justify-center rounded-2xl bg-[#2B66FF] text-white shadow-lg sm:h-16 sm:w-16">
+            <span className="flex h-12 w-12 -rotate-12 items-center justify-center rounded-2xl bg-[#2B66FF] text-white shadow-lg transition-transform duration-300 hover:-rotate-45 hover:scale-110 sm:h-16 sm:w-16">
               <svg className="h-7 w-7 stroke-[2] sm:h-9 sm:w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
               </svg>
             </span>
             {/* FOLIO badge/text */}
-            <PortoBadge text="FOLIO" bgClass="bg-[#0092E0]" accentColor="#e0f2fe" />
+            <span className="rounded-3xl bg-[#0092E0] px-8 py-2 text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-cyan-500/30">
+              FOLIO
+            </span>
           </div>
         </motion.div>
       </div>
