@@ -1,7 +1,7 @@
 "use client";
 
 import { CheckCircle2, Code, Network, Palette } from "lucide-react";
-import { Marquee } from "@/components/ui/marquee";
+import { LogoLoop } from "@/components/ui/logo-loop";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { useLanguage } from "@/context/language-context";
@@ -94,10 +94,19 @@ export function TechSkills() {
                     })}
                 </div>
 
-                {/* Animated Logo Marquee */}
+                {/* Animated Logo Loop from React Bits */}
                 <div className="mt-12 pt-6 border-t border-border/50">
-                    <Marquee duration="32s" reverse>
-                        {techSkills.map((skill) => (
+                    <LogoLoop
+                        logos={techSkills}
+                        speed={60}
+                        direction="left"
+                        gap={18}
+                        pauseOnHover={true}
+                        fadeOut={true}
+                        fadeOutWidth={0.15}
+                        draggable={true}
+                        ariaLabel="Technical skills and tools"
+                        renderItem={(skill: (typeof techSkills)[0]) => (
                             <div
                                 key={skill.name}
                                 className="flex shrink-0 items-center gap-2.5 rounded-2xl border border-border/70 bg-card/70 px-4 py-2 shadow-sm backdrop-blur-md transition-all hover:border-primary/50 hover:bg-card/90"
@@ -106,15 +115,15 @@ export function TechSkills() {
                                 <img
                                     src={skill.iconUrl}
                                     alt={skill.name}
-                                    className="h-5 w-5 shrink-0 object-contain"
+                                    className="h-5 w-5 shrink-0 object-contain pointer-events-none"
                                     loading="lazy"
                                 />
-                                <span className="whitespace-nowrap text-xs font-semibold text-foreground">
+                                <span className="whitespace-nowrap text-xs font-semibold text-foreground pointer-events-none">
                                     {skill.name}
                                 </span>
                             </div>
-                        ))}
-                    </Marquee>
+                        )}
+                    />
                 </div>
             </div>
         </section>
