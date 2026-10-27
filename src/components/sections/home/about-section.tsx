@@ -2,13 +2,15 @@
 
 import { useCallback, useState } from "react";
 import Image from "next/image";
-import { Briefcase, Calendar, ChevronLeft, ChevronRight, GraduationCap, ImageIcon, MapPin, Sparkles } from "lucide-react";
+import { Briefcase, Calendar, ChevronLeft, ChevronRight, GraduationCap, ImageIcon, MapPin } from "lucide-react";
 
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Modal } from "@/components/ui/modal";
 import { experiences, educationList } from "@/lib/data/company";
 import { useLanguage } from "@/context/language-context";
+import { ProfileCard } from "@/components/ui/profile-card";
+import { siteConfig } from "@/lib/site";
 import { TechSkills } from "./tech-skills";
 
 type GalleryModal = { type: "certificates" | "documentation"; expIndex: number } | null;
@@ -56,55 +58,24 @@ export function AboutSection() {
                     </Reveal>
 
                     <Reveal direction="right" delay={0.1}>
-                        <div className="relative flex flex-col items-center pt-8">
-                            {/* Lanyard Ribbon / Strap */}
-                            <div className="absolute top-0 z-20 flex flex-col items-center">
-                                {/* Ribbon */}
-                                <div className="h-10 w-10 bg-gradient-to-b from-cyan-600 via-blue-600 to-indigo-600 rounded-t-sm shadow-md border-x border-white/20 flex justify-around px-1">
-                                    <div className="w-1 h-full bg-white/20" />
-                                    <div className="w-1 h-full bg-white/20" />
-                                </div>
-                                {/* Metal Clip */}
-                                <div className="-mt-0.5 flex h-4 w-7 items-center justify-center rounded-sm bg-gradient-to-b from-zinc-300 to-zinc-500 shadow-lg border border-zinc-200">
-                                    <div className="h-1.5 w-3 rounded-full bg-zinc-800" />
-                                </div>
-                            </div>
-
-                            {/* Lanyard ID Badge Card */}
-                            <div className="relative aspect-[3/4] w-full max-w-[340px] overflow-hidden rounded-3xl border-4 border-cyan-500/60 bg-card p-2 shadow-[0_0_30px_rgba(6,182,212,0.35)] backdrop-blur-xl transition-all duration-500 hover:rotate-1 hover:scale-[1.02] hover:border-cyan-400">
-                                <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/20">
-                                    {/* Slot Hole */}
-                                    <div className="absolute top-3 left-1/2 -translate-x-1/2 z-20 h-3 w-10 rounded-full bg-zinc-950/80 border border-white/20 shadow-inner" />
-
-                                    {/* Photo */}
-                                    <Image
-                                        src="/images/1000335722.webp"
-                                        alt="Yedija Adya Vesaka"
-                                        fill
-                                        priority
-                                        sizes="(max-width: 768px) 300px, 340px"
-                                        className="object-cover object-[center_0%] scale-110 origin-top"
-                                    />
-
-                                    {/* Bottom Badge Info Bar */}
-                                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-transparent p-5 pt-12 text-white">
-                                        <div className="flex items-center justify-between">
-                                            <div>
-                                                <p className="text-[10px] font-mono font-bold tracking-widest text-cyan-400 uppercase">
-                                                    {t("about.badge.title").toUpperCase()}
-                                                </p>
-                                                <p className="text-base font-bold text-white">
-                                                    {t("about.badge.name")}
-                                                </p>
-                                            </div>
-                                            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">
-                                                <Sparkles className="h-4 w-4 animate-pulse" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                        <div className="relative flex flex-col items-center justify-center pt-4">
+                            <ProfileCard
+                                avatarUrl="/images/1000335722.webp"
+                                miniAvatarUrl="/images/1000335722.webp"
+                                name="Yedija Adya Vesaka"
+                                title={t("about.badge.title")}
+                                handle="yedijaadyavesaka"
+                                status="Open to Work"
+                                statusColor="#06b6d4"
+                                contactText={t("hero.cta_contact")}
+                                onContactClick={() => {
+                                    window.open(`https://wa.me/${siteConfig.whatsapp}`, "_blank");
+                                }}
+                                enableTilt={true}
+                                tiltStrength={15}
+                                holo={0.8}
+                                glare={0.6}
+                            />
                         </div>
                     </Reveal>
                 </div>
