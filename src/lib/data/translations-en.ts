@@ -134,14 +134,10 @@ export const translationsEn: Record<string, string> = {
   "exp.3.title": "Instructor & Laboratory Assistant",
   "exp.3.desc":
     "Supported computer laboratory operations and practicum delivery by ensuring workstation readiness, operating systems, applications, and local networking. Provided technical support to students and assisted lecturers in Multimedia, Digital Image Processing, Animation, and Game courses.",
-  "exp.3.h.0": "Technical Operations: Computer & Workstation Maintenance",
-  "exp.3.h.1": "Technical Operations: Software Installation & Troubleshooting",
-  "exp.3.h.2": "Technical Operations: Local Network Support",
-  "exp.3.h.3": "Technical Operations: Remote Technical Assistance",
-  "exp.3.h.4": "Instruction & Mentoring: Multimedia & Digital Image Processing",
-  "exp.3.h.5": "Instruction & Mentoring: Animation & Game Practicum",
-  "exp.3.h.6": "Instruction & Mentoring: Student Technical Guidance",
-  "exp.3.h.7": "Instruction & Mentoring: Practicum Report Assistance",
+  "exp.3.h.0": "Maintained workstation hardware, operating systems, and performed troubleshooting on specialized lab software.",
+  "exp.3.h.1": "Supported local network (LAN) operations and provided remote technical assistance to maintain seamless practicum connectivity.",
+  "exp.3.h.2": "Instructed and mentored students during Multimedia, Digital Image Processing, Animation, and Game practicums.",
+  "exp.3.h.3": "Delivered hands-on technical guidance and assisted in the evaluation of student assignments and practicum reports.",
 
   // Education items
   "edu.0.title": "Informatics Engineering",

@@ -134,14 +134,10 @@ export const translationsId: Record<string, string> = {
   "exp.3.title": "Instruktur & Asisten Laboratorium",
   "exp.3.desc":
     "Mendukung operasional laboratorium komputer dan pelaksanaan praktikum dengan memastikan kesiapan workstation, sistem operasi, aplikasi, dan jaringan lokal. Memberikan dukungan teknis kepada mahasiswa serta membantu dosen dalam kegiatan pembelajaran Multimedia, Pengolahan Citra Digital, Animasi, dan Game.",
-  "exp.3.h.0": "Technical Operations: Computer & Workstation Maintenance",
-  "exp.3.h.1": "Technical Operations: Software Installation & Troubleshooting",
-  "exp.3.h.2": "Technical Operations: Local Network Support",
-  "exp.3.h.3": "Technical Operations: Remote Technical Assistance",
-  "exp.3.h.4": "Instruction & Mentoring: Multimedia & Digital Image Processing",
-  "exp.3.h.5": "Instruction & Mentoring: Animation & Game Practicum",
-  "exp.3.h.6": "Instruction & Mentoring: Student Technical Guidance",
-  "exp.3.h.7": "Instruction & Mentoring: Practicum Report Assistance",
+  "exp.3.h.0": "Memelihara perangkat keras workstation, sistem operasi, serta melakukan troubleshooting perangkat lunak laboratorium.",
+  "exp.3.h.1": "Mendukung operasional jaringan lokal (LAN) dan menyediakan bantuan teknis jarak jauh untuk kelancaran sesi praktikum.",
+  "exp.3.h.2": "Memandu dan mengarahkan mahasiswa sebagai instruktur praktikum Multimedia, Pengolahan Citra Digital, Animasi, dan Game.",
+  "exp.3.h.3": "Memberikan bimbingan teknis langsung kepada mahasiswa serta membantu evaluasi asistensi laporan praktikum.",
 
   // Education items
   "edu.0.title": "Teknik Informatika",
