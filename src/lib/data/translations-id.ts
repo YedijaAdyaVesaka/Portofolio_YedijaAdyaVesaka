@@ -57,6 +57,7 @@ export const translationsId: Record<string, string> = {
   "projects.viewAll": "Jelajahi Semua Proyek di GitHub",
   "projects.cat.All": "Semua",
   "projects.cat.Web": "Web",
+  "projects.cat.Mobile": "Mobile",
   "projects.cat.Game": "Game",
   "projects.cat.IoT": "IoT",
   "projects.cat.Design": "Desain",
@@ -73,6 +74,12 @@ export const translationsId: Record<string, string> = {
   "project.church-info-system.outcome": "Pencatatan terpusat & penjadwalan ibadah",
   "project.church-info-system.desc":
     "Sistem manajemen gereja berbasis web dengan fitur pengelolaan data jemaat, tracking pendeta dan pelayanan, penjadwalan ibadah, catatan baptis dan pernikahan, serta dashboard admin dengan statistik real-time.",
+
+  "project.farma-mobile-app.title": "Aplikasi Mobile Farma",
+  "project.farma-mobile-app.client": "Proyek Pribadi",
+  "project.farma-mobile-app.outcome": "Aplikasi mobile lintas platform dengan backend Firebase real-time",
+  "project.farma-mobile-app.desc":
+    "Aplikasi mobile berbasis React Native dan Firebase untuk edukasi obat-obatan, katalog produk kesehatan, serta manajemen artikel dan blog perawatan tubuh secara real-time.",
 
   "project.automatic-plant-watering-system.title": "Sistem Penyiram Tanaman Otomatis",
   "project.automatic-plant-watering-system.client": "Proyek IoT",

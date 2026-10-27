@@ -19,7 +19,7 @@ export interface ProcessStep {
 }
 
 /* ------------------------------ portfolio ----------------------------- */
-export type ProjectCategory = "Web" | "Game" | "IoT" | "Design";
+export type ProjectCategory = "Web" | "Mobile" | "Game" | "IoT" | "Design";
 
 export interface Project {
   slug: string;

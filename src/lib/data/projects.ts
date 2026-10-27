@@ -35,6 +35,21 @@ export const projects: Project[] = [
     github: "https://github.com/YedijaAdyaVesaka/Sistem_Informasi_Gereja",
   },
   {
+    slug: "farma-mobile-app",
+    title: "Farma Health & Medicine Mobile App",
+    client: "Personal Project",
+    category: "Mobile",
+    year: 2023,
+    description:
+      "A React Native mobile application for health information, medicine recommendations, and real-time health blog management powered by Firebase Authentication, Firestore, and Cloud Storage.",
+    tags: ["React Native", "Firebase", "JavaScript", "Mobile App"],
+    outcome: "Cross-platform mobile app with real-time Firebase backend",
+    palette: ["#10B981", "#059669"],
+    aspect: "aspect-[4/3]",
+    image: "/images/Farma.png",
+    github: "https://github.com/YedijaAdyaVesaka/Farma",
+  },
+  {
     slug: "automatic-plant-watering-system",
     title: "Automatic Plant Watering System",
     client: "IoT Project",
@@ -129,6 +144,7 @@ export const projects: Project[] = [
 export const projectCategories = [
   "All",
   "Web",
+  "Mobile",
   "Game",
   "IoT",
   "Design",

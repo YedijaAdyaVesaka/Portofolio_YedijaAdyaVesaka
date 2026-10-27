@@ -57,6 +57,7 @@ export const translationsEn: Record<string, string> = {
   "projects.viewAll": "Explore All Projects on GitHub",
   "projects.cat.All": "All",
   "projects.cat.Web": "Web",
+  "projects.cat.Mobile": "Mobile",
   "projects.cat.Game": "Game",
   "projects.cat.IoT": "IoT",
   "projects.cat.Design": "Design",
@@ -73,6 +74,12 @@ export const translationsEn: Record<string, string> = {
   "project.church-info-system.outcome": "Centralized record keeping & scheduling",
   "project.church-info-system.desc":
     "A web-based church management system featuring member (jemaat) data management, clergy and ministry tracking, worship scheduling, baptism and marriage records, and admin dashboard with real-time statistics.",
+
+  "project.farma-mobile-app.title": "Farma Mobile App",
+  "project.farma-mobile-app.client": "Personal Project",
+  "project.farma-mobile-app.outcome": "Cross-platform mobile app with real-time Firebase backend",
+  "project.farma-mobile-app.desc":
+    "A React Native and Firebase mobile health application for medicine education, healthcare product catalogs, and real-time health article and blog management.",
 
   "project.automatic-plant-watering-system.title": "Automatic Plant Watering System",
   "project.automatic-plant-watering-system.client": "IoT Project",
