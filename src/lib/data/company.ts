@@ -274,22 +274,22 @@ export const achievements: Achievement[] = [
 ];
 
 export const techSkills = [
-  { name: "React.js", category: "frontend", iconUrl: "https://api.iconify.design/logos:react.svg" },
-  { name: "React Native", category: "mobile", iconUrl: "https://api.iconify.design/logos:react.svg" },
-  { name: "PHP", category: "backend", iconUrl: "https://api.iconify.design/logos:php.svg" },
-  { name: "Laravel", category: "backend", iconUrl: "https://api.iconify.design/logos:laravel.svg" },
-  { name: "MySQL", category: "database", iconUrl: "https://api.iconify.design/logos:mysql.svg" },
-  { name: "Firebase", category: "backend", iconUrl: "https://api.iconify.design/logos:firebase.svg" },
-  { name: "Git", category: "tools", iconUrl: "https://api.iconify.design/logos:git-icon.svg" },
-  { name: "C#", category: "language", iconUrl: "https://api.iconify.design/logos:c-sharp.svg" },
-  { name: "Unity", category: "gamedev", iconUrl: "https://api.iconify.design/logos:unity.svg" },
-  { name: "Arduino", category: "iot", iconUrl: "https://api.iconify.design/logos:arduino.svg" },
-  { name: "Python", category: "language", iconUrl: "https://api.iconify.design/logos:python.svg" },
-  { name: "Blender", category: "3d", iconUrl: "https://api.iconify.design/logos:blender.svg" },
-  { name: "Figma", category: "design", iconUrl: "https://api.iconify.design/logos:figma.svg" },
-  { name: "Adobe Family", category: "design", iconUrl: "https://api.iconify.design/logos:adobe-photoshop.svg" },
-  { name: "CapCut", category: "video", iconUrl: "https://api.iconify.design/cib:capcut.svg" },
-  { name: "Microsoft Office", category: "office", iconUrl: "https://api.iconify.design/logos:microsoft-icon.svg" },
+  { name: "React.js", category: "frontend", iconUrl: "/icons/react.svg" },
+  { name: "React Native", category: "mobile", iconUrl: "/icons/react.svg" },
+  { name: "PHP", category: "backend", iconUrl: "/icons/php.svg" },
+  { name: "Laravel", category: "backend", iconUrl: "/icons/laravel.svg" },
+  { name: "MySQL", category: "database", iconUrl: "/icons/mysql.svg" },
+  { name: "Firebase", category: "backend", iconUrl: "/icons/firebase.svg" },
+  { name: "Git", category: "tools", iconUrl: "/icons/git.svg" },
+  { name: "C#", category: "language", iconUrl: "/icons/c-sharp.svg" },
+  { name: "Unity", category: "gamedev", iconUrl: "/icons/unity.svg" },
+  { name: "Arduino", category: "iot", iconUrl: "/icons/arduino.svg" },
+  { name: "Python", category: "language", iconUrl: "/icons/python.svg" },
+  { name: "Blender", category: "3d", iconUrl: "/icons/blender.svg" },
+  { name: "Figma", category: "design", iconUrl: "/icons/figma.svg" },
+  { name: "Adobe Family", category: "design", iconUrl: "/icons/adobe-photoshop.svg" },
+  { name: "CapCut", category: "video", iconUrl: "/icons/capcut.svg" },
+  { name: "Microsoft Office", category: "office", iconUrl: "/icons/microsoft.svg" },
 ];
 
 export const partnerLogos: PartnerLogo[] = [
