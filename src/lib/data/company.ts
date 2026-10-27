@@ -138,7 +138,7 @@ export const experiences: TimelineItem[] = [
       "Instructed and mentored students during Multimedia, Digital Image Processing, Animation, and Game practicums.",
       "Delivered hands-on technical guidance and assisted in the evaluation of student assignments and practicum reports.",
     ],
-    tags: ["Windows/Linux", "TeamViewer", "AnyDesk", "Local Networking"],
+    tags: ["Image Processing", "Game Programming", "Hardware and Software Troubleshooting"],
   },
 ];
 
