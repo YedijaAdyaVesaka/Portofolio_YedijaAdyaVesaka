@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowRight, ArrowUpRight, ExternalLink } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink, Github } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Reveal } from "@/components/ui/reveal";
@@ -144,7 +144,7 @@ export function PortfolioPreview() {
                   exit={{ opacity: 0, scale: 0.9, y: 20 }}
                   whileHover={{ scale: 1.02, y: -6 }}
                   transition={{ duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
-                  className="group relative flex h-[520px] w-[340px] shrink-0 flex-col justify-between overflow-hidden rounded-3xl border border-border/80 bg-gradient-to-b from-card via-card/95 to-card/90 dark:from-zinc-900/90 dark:via-zinc-950/90 dark:to-black p-6 shadow-xl transition-all duration-500 hover:border-[#2B66FF]/60 hover:shadow-2xl hover:shadow-blue-500/15 [scroll-snap-align:center] sm:w-[380px]"
+                  className="group relative flex min-h-[540px] w-[340px] shrink-0 flex-col justify-between overflow-hidden rounded-3xl border border-border/80 bg-gradient-to-b from-card via-card/95 to-card/90 dark:from-zinc-900/90 dark:via-zinc-950/90 dark:to-black p-6 shadow-xl transition-all duration-500 hover:border-[#2B66FF]/60 hover:shadow-2xl hover:shadow-blue-500/15 [scroll-snap-align:center] sm:w-[380px]"
                 >
                   {/* Background gradient graphics / subtle glow */}
                   <div
@@ -208,28 +208,46 @@ export function PortfolioPreview() {
                     )}
                   </div>
 
-                  {/* Bottom Area: Title, Description, and Blue Accent Button */}
-                  <div className="relative z-10">
-                    <div className="flex items-end justify-between gap-4">
-                      <div>
-                        <h3 className="text-2xl font-bold tracking-tight text-foreground dark:text-white transition-colors group-hover:text-blue-600 dark:group-hover:text-sky-400">
-                          {t(`project.${project.slug}.title`)}
-                        </h3>
-                        <p className="mt-2 text-xs leading-relaxed text-muted-foreground dark:text-zinc-400 line-clamp-2">
-                          {t(`project.${project.slug}.desc`)}
-                        </p>
-                      </div>
+                  {/* Bottom Area: Title, Description, and Clear Action Buttons */}
+                  <div className="relative z-10 pt-2">
+                    <h3 className="text-xl font-bold tracking-tight text-foreground dark:text-white transition-colors group-hover:text-blue-600 dark:group-hover:text-sky-400">
+                      {t(`project.${project.slug}.title`)}
+                    </h3>
+                    <p className="mt-2 text-xs leading-relaxed text-muted-foreground dark:text-zinc-400 line-clamp-3">
+                      {t(`project.${project.slug}.desc`)}
+                    </p>
 
-                      {/* Vibrant Blue Circle Arrow Action Button */}
-                      {(project.link || project.github) && (
+                    {/* Clear Action Buttons */}
+                    <div className="mt-4 flex flex-wrap items-center gap-2 pt-3 border-t border-border/60">
+                      {project.github && (
                         <a
-                          href={project.link || project.github}
+                          href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          aria-label={`Open ${project.title}`}
-                          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#2B66FF] text-white shadow-lg shadow-blue-500/30 transition-transform duration-300 group-hover:scale-110 hover:bg-blue-500"
+                          className="inline-flex items-center gap-1.5 rounded-full border border-border/80 bg-background/80 px-3.5 py-1.5 text-xs font-semibold text-foreground transition-all hover:border-[#2B66FF] hover:bg-[#2B66FF]/10 hover:text-[#2B66FF] dark:border-zinc-700 dark:bg-zinc-900/80"
                         >
-                          <ArrowUpRight className="h-5 w-5 stroke-[2.5]" />
+                          <Github className="h-3.5 w-3.5" />
+                          <span>{t("projects.btn.github")}</span>
+                        </a>
+                      )}
+
+                      {project.link && (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 rounded-full bg-[#2B66FF] px-3.5 py-1.5 text-xs font-semibold text-white shadow-md shadow-blue-500/25 transition-all hover:bg-blue-600 hover:scale-[1.02]"
+                        >
+                          <ExternalLink className="h-3.5 w-3.5" />
+                          <span>
+                            {project.category === "Design"
+                              ? project.slug === "naikbus-uiux-design"
+                                ? t("projects.btn.figma")
+                                : t("projects.btn.docs")
+                              : project.category === "Game"
+                              ? t("projects.btn.play")
+                              : t("projects.btn.demo")}
+                          </span>
                         </a>
                       )}
                     </div>

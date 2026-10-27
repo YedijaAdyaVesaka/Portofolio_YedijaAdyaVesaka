@@ -126,6 +126,13 @@ export interface Achievement {
   year: string;
 }
 
+export interface SkillCategory {
+  title: string;
+  key: string;
+  iconName: "network" | "code" | "check" | "palette";
+  skills: string[];
+}
+
 export interface PartnerLogo {
   name: string;
   icon: LucideIcon;

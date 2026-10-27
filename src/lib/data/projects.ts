@@ -11,8 +11,8 @@ export const projects: Project[] = [
     category: "Web",
     year: 2024,
     description:
-      "A web-based ERP system for garment/convection businesses featuring product management, material tracking, vendor transactions, purchasing, and real-time dashboard analytics with role-based admin control.",
-    tags: ["PHP", "Laravel", "JavaScript", "MySQL"],
+      "A web-based ERP system for garment/convection businesses featuring product management, material tracking, vendor transactions, purchasing, and real-time dashboard analytics with role-based admin control. Thoroughly validated through Functional Testing and Database Integrity verification.",
+    tags: ["PHP", "Laravel", "MySQL", "Functional Testing"],
     outcome: "Real-time dashboard analytics & role-based access control",
     palette: ["#3B82F6", "#1D4ED8"],
     aspect: "aspect-[4/3]",
@@ -26,8 +26,8 @@ export const projects: Project[] = [
     category: "Web",
     year: 2024,
     description:
-      "A web-based church management system featuring member (jemaat) data management, clergy and ministry tracking, worship scheduling, baptism and marriage records, and admin dashboard with real-time statistics.",
-    tags: ["PHP", "Laravel", "MySQL", "Vite"],
+      "A web-based church management system featuring member (jemaat) data management, clergy and ministry tracking, worship scheduling, baptism and marriage records, and admin dashboard with real-time statistics. Verified with end-to-end Functional Testing and Database Integrity enforcement.",
+    tags: ["PHP", "Laravel", "MySQL", "Functional Testing"],
     outcome: "Centralized record keeping & scheduling",
     palette: ["#8B5CF6", "#6D28D9"],
     aspect: "aspect-[3/4]",

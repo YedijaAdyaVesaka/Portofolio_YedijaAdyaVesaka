@@ -80,7 +80,7 @@ export function Hero() {
   useEffect(() => {
     const timer = setInterval(() => setIndex((i) => (i + 1) % words.length), 2500);
     return () => clearInterval(timer);
-  }, []);
+  }, [words.length]);
 
   return (
     <section className="relative flex min-h-[70vh] w-full items-center justify-center overflow-hidden px-4 pt-24 pb-20 md:pt-36 md:pb-28">
@@ -135,6 +135,14 @@ export function Hero() {
             </motion.span>
           </AnimatePresence>
         </motion.div>
+
+        {/* Sub-headline / Positioning Tagline */}
+        <motion.p
+          {...fadeUpInView(0.38)}
+          className="mt-5 max-w-2xl text-center text-base sm:text-lg text-muted-foreground font-medium leading-relaxed"
+        >
+          {t("hero.tagline")}
+        </motion.p>
 
         {/* Buttons */}
         <motion.div

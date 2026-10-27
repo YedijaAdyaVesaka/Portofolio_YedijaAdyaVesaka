@@ -22,6 +22,8 @@ const navItem =
  * Site navigation: floating glass pill that gains blur + elevation on scroll.
  * Uses single-page anchor highlights when on home route.
  */
+const SECTION_IDS = ["top", "about", "experience", "projects", "contact"];
+
 export function Navbar() {
   const { t } = useLanguage();
   const pathname = usePathname();
@@ -41,11 +43,10 @@ export function Navbar() {
   useEffect(() => {
     if (pathname !== "/") return;
 
-    const sections = navLinks.map((link) => link.targetId);
     const handleScroll = () => {
       const scrollPos = window.scrollY + 200;
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const id = sections[i];
+      for (let i = SECTION_IDS.length - 1; i >= 0; i--) {
+        const id = SECTION_IDS[i];
         if (id === "top" && window.scrollY < 300) {
           setActiveSection("top");
           break;

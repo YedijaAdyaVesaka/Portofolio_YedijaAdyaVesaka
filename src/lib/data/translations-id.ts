@@ -9,31 +9,33 @@ export const translationsId: Record<string, string> = {
 
   // Hero
   "hero.badge": "Halo, Saya 👋",
-  "hero.role.0": "Teknik Informatika",
-  "hero.role.1": "Web Developer",
-  "hero.role.2": "Game Developer",
-  "hero.role.3": "Desain Grafis",
+  "hero.tagline":
+    "Lulusan Teknik Informatika (S.Kom) dengan spesialisasi di IT Support & Infrastruktur, Operasional Sistem, Web Engineering, dan Solusi Digital.",
+  "hero.role.0": "IT Support & Infrastruktur",
+  "hero.role.1": "Web Engineering",
+  "hero.role.2": "Operasional Sistem",
+  "hero.role.3": "Solusi Digital & Multimedia",
   "hero.cta_projects": "Lihat Proyek",
   "hero.cta_contact": "Hubungi Saya",
 
   // About
   "about.eyebrow": "Tentang Saya",
   "about.bio1":
-    'Dikenal sebagai <span class="font-semibold text-foreground">Yave</span>, saya Fresh Graduate Teknik Informatika yang punya passion di coding, desain, dan pemecahan masalah kreatif. Saya suka mengubah ide-ide kompleks menjadi produk digital yang elegan, performan, dan estetik.',
+    "Dikenal sebagai Yave, saya Lulusan Sarjana Teknik Informatika (S.Kom) dengan kompetensi kuat di bidang IT Support & Infrastruktur, Operasional Sistem, dan Web Engineering. Saya berfokus pada menjaga ketersediaan operasional (uptime), penanganan troubleshooting teknis terstruktur, serta membangun solusi digital yang tangguh dan andal.",
   "about.bio2":
-    "Dari mendesain antarmuka dan grafis yang menarik secara visual hingga membangun aplikasi web yang scalable dan pengalaman game yang imersif, saya berkembang di persimpangan desain, pengembangan, dan interaktivitas.",
+    "Dari troubleshooting perangkat keras, sistem operasi, dan penataan jaringan lokal hingga pengembangan aplikasi web end-to-end serta aset multimedia, saya menghubungkan keandalan sistem teknis dengan solusi intuitif bagi pengguna.",
   "about.badge.name": "Yedija Adya Vesaka",
-  "about.badge.title": "Teknik Informatika",
+  "about.badge.title": "Sarjana Komputer (S.Kom)",
   "about.badge.id": "PORTOFOLIO 2025",
 
   // Education
   "edu.title": "Pendidikan",
-  "edu.subtitle": "Perjalanan akademik saya dari SD sampai Sarjana.",
+  "edu.subtitle": "Latar belakang pendidikan tinggi dan menengah saya.",
   "edu.highlights.label": "PENCAPAIAN UTAMA:",
 
   // Experience
-  "exp.title": "Pengalaman Kerja & Organisasi",
-  "exp.subtitle": "Perjalanan profesional saya dalam tech, desain, dan organisasi.",
+  "exp.title": "Pengalaman Kerja & Operasional",
+  "exp.subtitle": "Perjalanan profesional saya dalam IT support, operasional sistem, dan organisasi.",
   "exp.highlights.label": "PENCAPAIAN UTAMA:",
   "exp.btn.certificates": "Galeri Sertifikat",
   "exp.btn.documentation": "Dokumentasi Kegiatan",
@@ -46,8 +48,15 @@ export const translationsId: Record<string, string> = {
   "stats.designs": "Desain dibuat",
   "stats.dedication": "Dedikasi pada detail",
 
-  // Tech Skills
-  "skills.title": "Keahlian Teknis & Alat",
+  // Skills
+  "skills.eyebrow": "Kompetensi",
+  "skills.title": "Keahlian Teknis & Kompetensi Inti",
+  "skills.subtitle":
+    "Kompetensi terstruktur dalam IT support & infrastruktur, rekayasa perangkat lunak, penjaminan kualitas (QA), dan multimedia.",
+  "skills.cat.it_support": "IT Support & Infrastructure",
+  "skills.cat.software_web": "Software & Web Engineering",
+  "skills.cat.qa_systems": "QA & Systems Analysis",
+  "skills.cat.design_multimedia": "Design & Multimedia",
 
   // Projects
   "projects.eyebrow": "Proyek Unggulan",
@@ -61,19 +70,25 @@ export const translationsId: Record<string, string> = {
   "projects.cat.Game": "Game",
   "projects.cat.IoT": "IoT",
   "projects.cat.Design": "Desain",
+  "projects.btn.github": "GitHub Repo",
+  "projects.btn.demo": "Live Demo",
+  "projects.btn.figma": "Prototipe Figma",
+  "projects.btn.docs": "Dokumentasi Portofolio",
+  "projects.btn.play": "Mainkan Game",
+  "projects.btn.internal": "Proyek Internal",
 
   // Project details & descriptions
   "project.erp-konveksikita.title": "Sistem ERP KonveksiKita",
   "project.erp-konveksikita.client": "Proyek Pribadi",
   "project.erp-konveksikita.outcome": "Analitik dashboard real-time & kontrol akses berbasis peran",
   "project.erp-konveksikita.desc":
-    "Sistem ERP berbasis web untuk bisnis garmen/konveksi dengan fitur manajemen produk, tracking material, transaksi vendor, pembelian, dan dashboard analitik real-time dengan kontrol admin berbasis peran.",
+    "Sistem ERP berbasis web untuk bisnis garmen/konveksi dengan fitur manajemen produk, tracking material, transaksi vendor, pembelian, dan dashboard analitik real-time berbasis peran. Dilengkapi pengujian sistem menyeluruh melalui Functional Testing dan verifikasi Database Integrity untuk mencegah inkonsistensi transaksi.",
 
   "project.church-info-system.title": "Sistem Informasi Gereja",
   "project.church-info-system.client": "Gereja",
   "project.church-info-system.outcome": "Pencatatan terpusat & penjadwalan ibadah",
   "project.church-info-system.desc":
-    "Sistem manajemen gereja berbasis web dengan fitur pengelolaan data jemaat, tracking pendeta dan pelayanan, penjadwalan ibadah, catatan baptis dan pernikahan, serta dashboard admin dengan statistik real-time.",
+    "Sistem manajemen gereja berbasis web dengan fitur pengelolaan data jemaat, tracking pelayan gereja, penjadwalan ibadah, catatan sakramen baptis & pernikahan, serta dashboard statistik real-time. Divalidasi melalui pengujian Functional Testing menyeluruh pada seluruh modul dan penegakan Database Integrity.",
 
   "project.farma-mobile-app.title": "Aplikasi Mobile Farma",
   "project.farma-mobile-app.client": "Proyek Pribadi",
@@ -118,47 +133,51 @@ export const translationsId: Record<string, string> = {
     "Desain UI/UX aplikasi mobile komprehensif untuk NaikBus, platform pemesanan tiket bus online dengan fitur pemilihan kursi, pencarian destinasi, promo, dan alur checkout yang mulus.",
 
   // Experience items
-  "exp.0.title": "Koordinator Transportasi & Akomodasi (PIC)",
-  "exp.0.desc": "Mengoordinasikan logistik transportasi dan akomodasi untuk tamu undangan dan panitia, memastikan kelancaran operasional acara dan jadwal pelaksanaan.",
-  "exp.0.h.0": "Mengoordinasikan transportasi dan akomodasi untuk tamu undangan dan panitia selama Karya Nyata Festival Vol.10.",
-  "exp.0.h.1": "Berkomunikasi dengan vendor, panitia, dan pihak eksternal untuk memastikan eksekusi operasional yang lancar.",
-  "exp.0.h.2": "Memastikan semua kebutuhan transportasi berjalan sesuai jadwal selama acara.",
+  "exp.0.title": "IT Support Specialist",
+  "exp.0.desc":
+    "Bertanggung jawab atas ketersediaan operasional IT, first-line technical support, serta instalasi dan pemeliharaan perangkat workstation, jaringan lokal, dan sistem multimedia live stream.",
+  "exp.0.h.0":
+    "Menangani first-line troubleshooting secara real-time untuk hardware, OS, aplikasi, dan jaringan dengan menjaga uptime operasional di atas 99%.",
+  "exp.0.h.1":
+    "Melakukan preventive maintenance rutin, manajemen aset IT, dan penataan jaringan lokal (LAN/WLAN).",
+  "exp.0.h.2":
+    "Memberikan panduan operasional teknis serta problem-solving langsung kepada end-users.",
 
-  "exp.1.title": "Magang Desain Grafis",
-  "exp.1.desc": "Merancang materi branding visual untuk sertifikasi UMKM, program ekspor, merchandise acara, dan komunikasi eksekutif.",
-  "exp.1.h.0": "Merancang aset visual untuk program fasilitator UMKM bersertifikat BNSP.",
-  "exp.1.h.1": "Membuat materi promosi untuk coaching ekspor berkolaborasi dengan PPI.",
-  "exp.1.h.2": "Membuat desain booth, merchandise, dan aset acara untuk Karya Nyata Festival Vol.10.",
-  "exp.1.h.3": "Menerbitkan 20+ konten media sosial (feed & reels).",
-  "exp.1.h.4": "Membuat materi presentasi eksekutif & visual untuk pimpinan C-level (CEO & CFO).",
+  "exp.1.title": "Koordinator Transportasi & Akomodasi (PIC)",
+  "exp.1.desc": "Mengoordinasikan logistik transportasi dan akomodasi untuk tamu undangan dan panitia, memastikan kelancaran operasional acara dan jadwal pelaksanaan.",
+  "exp.1.h.0": "Mengoordinasikan transportasi dan akomodasi untuk tamu undangan dan panitia selama Karya Nyata Festival Vol.10.",
+  "exp.1.h.1": "Berkomunikasi dengan vendor, panitia, dan pihak eksternal untuk memastikan eksekusi operasional yang lancar.",
+  "exp.1.h.2": "Memastikan semua kebutuhan transportasi berjalan sesuai jadwal selama acara.",
 
   "exp.2.title": "Magang Desain Grafis",
-  "exp.2.desc": "Memberdayakan UMKM lokal melalui branding visual, pemasaran media sosial, dan pelatihan fotografi produk secara langsung.",
-  "exp.2.h.0": "Merancang materi presentasi dan pemasaran untuk workshop pelatihan UMKM.",
-  "exp.2.h.1": "Membuat konten media sosial yang menarik (feed dan Instagram reels).",
-  "exp.2.h.2": "Mengadakan pelatihan fotografi produk untuk meningkatkan kualitas branding visual UMKM.",
+  "exp.2.desc": "Merancang materi branding visual untuk sertifikasi UMKM, program ekspor, merchandise acara, dan komunikasi eksekutif.",
+  "exp.2.h.0": "Merancang aset visual untuk program fasilitator UMKM bersertifikat BNSP.",
+  "exp.2.h.1": "Membuat materi promosi untuk coaching ekspor berkolaborasi dengan PPI.",
+  "exp.2.h.2": "Membuat desain booth, merchandise, dan aset acara untuk Karya Nyata Festival Vol.10.",
+  "exp.2.h.3": "Menerbitkan 20+ konten media sosial (feed & reels).",
+  "exp.2.h.4": "Membuat materi presentasi eksekutif & visual untuk pimpinan C-level (CEO & CFO).",
 
-  "exp.3.title": "Instruktur & Asisten Laboratorium",
-  "exp.3.desc":
+  "exp.3.title": "Magang Desain Grafis",
+  "exp.3.desc": "Memberdayakan UMKM lokal melalui branding visual, pemasaran media sosial, dan pelatihan fotografi produk secara langsung.",
+  "exp.3.h.0": "Merancang materi presentasi dan pemasaran untuk workshop pelatihan UMKM.",
+  "exp.3.h.1": "Membuat konten media sosial yang menarik (feed dan Instagram reels).",
+  "exp.3.h.2": "Mengadakan pelatihan fotografi produk untuk meningkatkan kualitas branding visual UMKM.",
+
+  "exp.4.title": "Instruktur & Asisten Laboratorium",
+  "exp.4.desc":
     "Mendukung operasional laboratorium komputer dan pelaksanaan praktikum dengan memastikan kesiapan workstation, sistem operasi, aplikasi, dan jaringan lokal. Memberikan dukungan teknis kepada mahasiswa serta membantu dosen dalam kegiatan pembelajaran Multimedia, Pengolahan Citra Digital, Animasi, dan Game.",
-  "exp.3.h.0": "Membimbing praktikum Image Processing dan Multimedia, mencakup algoritma pengolahan citra digital, manipulasi visual, serta evaluasi laporan teknis mahasiswa.",
-  "exp.3.h.1": "Memandu praktikum Game Programming dan Animasi, memberikan arahan teknis pada logika pemrograman game, mekanika interaktif, serta integrasi aset.",
-  "exp.3.h.2": "Melakukan Hardware and Software Troubleshooting berkala pada workstation, konfigurasi sistem operasi, dan jaringan lokal guna memastikan kesiapan operasional laboratorium.",
+  "exp.4.h.0": "Membimbing praktikum Image Processing dan Multimedia, mencakup algoritma pengolahan citra digital, manipulasi visual, serta evaluasi laporan teknis mahasiswa.",
+  "exp.4.h.1": "Memandu praktikum Game Programming dan Animasi, memberikan arahan teknis pada logika pemrograman game, mekanika interaktif, serta integrasi aset.",
+  "exp.4.h.2": "Melakukan Hardware and Software Troubleshooting berkala pada workstation, konfigurasi sistem operasi, dan jaringan lokal guna memastikan kesiapan operasional laboratorium.",
 
   // Education items
-  "edu.0.title": "Teknik Informatika",
-  "edu.0.h.0": "IPK 3,7 / 4,0 — berfokus pada sistem web, IoT, dan pengembangan game.",
+  "edu.0.title": "Sarjana (S1) Teknik Informatika (S.Kom)",
+  "edu.0.h.0": "IPK 3,70 / 4,00 — fokus pada infrastruktur IT, operasional sistem, web engineering, dan solusi digital.",
   "edu.0.h.1": "Asisten Laboratorium pada mata kuliah Multimedia, Pengolahan Citra Digital, Animasi, dan Game.",
 
   "edu.1.title": "Jurusan MIPA",
   "edu.1.h.0": "Fokus pada matematika, fisika, biologi, dan kimia.",
-  "edu.1.h.1": "Aktif dalam organisasi sekolah dan kegiatan ekstrakurikuler.",
-
-  "edu.2.title": "Sekolah Menengah Pertama (SMP)",
-  "edu.2.h.0": "Aktif dalam kompetisi akademik dan kegiatan ekstrakurikuler sekolah.",
-
-  "edu.3.title": "Sekolah Dasar (SD)",
-  "edu.3.h.0": "Menyelesaikan pendidikan dasar dengan fondasi kuat dalam matematika dan sains.",
+  "edu.1.h.1": "Aktif dalam organisasi sekolah dan kegiatan ekstrakurikuler sains.",
 
   // CTA
   "cta.title": "Punya ide? Mari bangun sesuatu bersama.",

@@ -8,7 +8,6 @@ import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Modal } from "@/components/ui/modal";
 import { experiences, educationList } from "@/lib/data/company";
-import { Marquee } from "@/components/ui/marquee";
 import { useLanguage } from "@/context/language-context";
 import { TechSkills } from "./tech-skills";
 
@@ -45,10 +44,9 @@ export function AboutSection() {
                                 className="mb-2"
                             />
                             <div className="space-y-4">
-                                <p
-                                    className="text-muted-foreground leading-relaxed"
-                                    dangerouslySetInnerHTML={{ __html: t("about.bio1") }}
-                                />
+                                <p className="text-muted-foreground leading-relaxed">
+                                    {t("about.bio1")}
+                                </p>
                                 <p className="text-muted-foreground leading-relaxed">
                                     {t("about.bio2")}
                                 </p>
@@ -124,74 +122,75 @@ export function AboutSection() {
                         description={t("edu.subtitle")}
                     />
 
-                    <Marquee duration="40s">
+                    <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
                         {educationList.map((item, idx) => (
-                            <div
-                                key={item.title + item.company + item.year}
-                                className="h-[210px] w-[440px] shrink-0 rounded-3xl border border-border/80 bg-card/90 p-6 backdrop-blur shadow-md transition-all duration-300 hover:border-primary/50 hover:shadow-lg flex flex-col justify-between"
-                            >
-                                <div className="space-y-3">
-                                    {/* Header with Graduation Icon / Institution Logo, Title, Location & Date */}
-                                    <div className="flex items-start gap-4">
-                                        {item.logoUrl ? (
-                                            <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white p-1.5 shadow-md border border-border/40 dark:bg-zinc-900">
-                                                <Image
-                                                    src={item.logoUrl}
-                                                    alt={item.company || item.title}
-                                                    fill
-                                                    sizes="48px"
-                                                    className="object-contain p-1.5"
-                                                />
+                            <Reveal key={item.title + item.company + item.year} delay={idx * 0.1}>
+                                <div
+                                    className="h-full rounded-3xl border border-border/80 bg-card/90 p-6 backdrop-blur shadow-md transition-all duration-300 hover:border-primary/50 hover:shadow-lg flex flex-col justify-between"
+                                >
+                                    <div className="space-y-3">
+                                        {/* Header with Graduation Icon / Institution Logo, Title, Location & Date */}
+                                        <div className="flex items-start gap-4">
+                                            {item.logoUrl ? (
+                                                <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white p-1.5 shadow-md border border-border/40 dark:bg-zinc-900">
+                                                    <Image
+                                                        src={item.logoUrl}
+                                                        alt={item.company || item.title}
+                                                        fill
+                                                        sizes="48px"
+                                                        className="object-contain p-1.5"
+                                                    />
+                                                </div>
+                                            ) : (
+                                                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-tr from-primary to-accent text-white shadow-md">
+                                                    <GraduationCap className="h-6 w-6" />
+                                                </div>
+                                            )}
+                                            <div className="flex-1 min-w-0">
+                                                <div className="flex items-center justify-between gap-2">
+                                                    <h3 className="text-base font-bold tracking-tight text-foreground md:text-lg">
+                                                        {t(`edu.${idx}.title`)}
+                                                    </h3>
+                                                    <span className="inline-flex shrink-0 items-center gap-1 text-xs font-semibold text-muted-foreground">
+                                                        <Calendar className="h-3.5 w-3.5" />
+                                                        {item.year}
+                                                    </span>
+                                                </div>
+                                                {item.company && (
+                                                    <p className="text-sm font-semibold text-cyan-500 dark:text-cyan-400">
+                                                        {item.company}
+                                                    </p>
+                                                )}
+                                                {item.location && (
+                                                    <p className="mt-0.5 flex items-center gap-1 text-xs text-muted-foreground">
+                                                        <MapPin className="h-3 w-3 shrink-0" />
+                                                        {item.location}
+                                                    </p>
+                                                )}
                                             </div>
-                                        ) : (
-                                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-tr from-primary to-accent text-white shadow-md">
-                                                <GraduationCap className="h-6 w-6" />
+                                        </div>
+
+                                        {/* Key Highlights bullet list */}
+                                        {item.highlights && item.highlights.length > 0 && (
+                                            <div className="space-y-1.5 pt-3 border-t border-border/60">
+                                                <p className="text-[11px] font-bold uppercase tracking-wider text-foreground/90">
+                                                    {t("edu.highlights.label")}
+                                                </p>
+                                                <ul className="space-y-1.5 text-xs text-muted-foreground">
+                                                    {item.highlights.map((point, hIdx) => (
+                                                        <li key={point} className="flex items-start gap-2 leading-relaxed">
+                                                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                                                            <span>{t(`edu.${idx}.h.${hIdx}`)}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
                                             </div>
                                         )}
-                                        <div className="flex-1 min-w-0">
-                                            <div className="flex items-center justify-between gap-2">
-                                                <h3 className="text-lg font-bold tracking-tight text-foreground truncate">
-                                                    {t(`edu.${idx}.title`)}
-                                                </h3>
-                                                <span className="inline-flex shrink-0 items-center gap-1 text-xs font-semibold text-muted-foreground">
-                                                    <Calendar className="h-3.5 w-3.5" />
-                                                    {item.year}
-                                                </span>
-                                            </div>
-                                            {item.company && (
-                                                <p className="text-sm font-semibold text-cyan-500 dark:text-cyan-400 truncate">
-                                                    {item.company}
-                                                </p>
-                                            )}
-                                            {item.location && (
-                                                <p className="mt-0.5 flex items-center gap-1 text-xs text-muted-foreground truncate">
-                                                    <MapPin className="h-3 w-3 shrink-0" />
-                                                    {item.location}
-                                                </p>
-                                            )}
-                                        </div>
                                     </div>
-
-                                    {/* Key Highlights bullet list */}
-                                    {item.highlights && item.highlights.length > 0 && (
-                                        <div className="space-y-1 pt-2 border-t border-border/60">
-                                            <p className="text-[11px] font-bold uppercase tracking-wider text-foreground/90">
-                                                {t("edu.highlights.label")}
-                                            </p>
-                                            <ul className="space-y-1 text-xs text-muted-foreground">
-                                                {item.highlights.slice(0, 2).map((point, hIdx) => (
-                                                    <li key={point} className="flex items-start gap-2 leading-tight line-clamp-1">
-                                                        <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                                                        <span className="truncate">{t(`edu.${idx}.h.${hIdx}`)}</span>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    )}
                                 </div>
-                            </div>
+                            </Reveal>
                         ))}
-                    </Marquee>
+                    </div>
                 </div>
             </section>
 

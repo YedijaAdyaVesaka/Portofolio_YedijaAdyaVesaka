@@ -9,31 +9,33 @@ export const translationsEn: Record<string, string> = {
 
   // Hero
   "hero.badge": "Hi, I'm 👋",
-  "hero.role.0": "Informatics Engineering",
-  "hero.role.1": "Web Developer",
-  "hero.role.2": "Game Developer",
-  "hero.role.3": "Graphic Design",
+  "hero.tagline":
+    "Informatics Engineering Graduate (S.Kom) specializing in IT Support & Infrastructure, System Operations, Web Engineering, and Digital Solutions.",
+  "hero.role.0": "IT Support & Infrastructure",
+  "hero.role.1": "Web Engineering",
+  "hero.role.2": "System Operations",
+  "hero.role.3": "Digital Solutions & Multimedia",
   "hero.cta_projects": "View My Work",
   "hero.cta_contact": "Contact Me",
 
   // About
   "about.eyebrow": "About Me",
   "about.bio1":
-    'Known as <span class="font-semibold text-foreground">Yave</span>, I\'m a Fresh Graduate in Informatics Engineering with a deep passion for coding, design, and creative problem solving. I love turning complex ideas into elegant, performant digital experiences that feel as good as they look.',
+    "Known as Yave, I'm an Informatics Engineering Graduate (S.Kom) with a strong foundation in IT Support & Infrastructure, System Operations, and Web Engineering. I specialize in maintaining high operational uptime, structured technical troubleshooting, and building clean, reliable digital solutions.",
   "about.bio2":
-    "From designing visually compelling interfaces and graphics to building scalable web applications and immersive game experiences, I thrive at the intersection of design, development, and interactivity.",
+    "From diagnostic troubleshooting across hardware, OS, and local networks to full-stack web applications and visual multimedia, I excel at bridging technical reliability with intuitive end-user solutions.",
   "about.badge.name": "Yedija Adya Vesaka",
-  "about.badge.title": "Informatics Engineering",
+  "about.badge.title": "Informatics Engineering (S.Kom)",
   "about.badge.id": "PORTFOLIO 2025",
 
   // Education
   "edu.title": "Education",
-  "edu.subtitle": "My academic journey from elementary to bachelor's degree.",
+  "edu.subtitle": "My higher education and secondary academic background.",
   "edu.highlights.label": "KEY HIGHLIGHTS:",
 
   // Experience
   "exp.title": "Work & Experience",
-  "exp.subtitle": "My professional journey in tech, design, and organizations.",
+  "exp.subtitle": "My professional journey in tech, system operations, and organizations.",
   "exp.highlights.label": "KEY HIGHLIGHTS:",
   "exp.btn.certificates": "Certificate Gallery",
   "exp.btn.documentation": "Activity Documentation",
@@ -46,8 +48,15 @@ export const translationsEn: Record<string, string> = {
   "stats.designs": "Designs crafted",
   "stats.dedication": "Dedication to detail",
 
-  // Tech Skills
-  "skills.title": "Technical Skills & Tools",
+  // Skills
+  "skills.eyebrow": "Competencies",
+  "skills.title": "Technical Skills & Competencies",
+  "skills.subtitle":
+    "Structured technical expertise spanning infrastructure, software development, quality assurance, and multimedia.",
+  "skills.cat.it_support": "IT Support & Infrastructure",
+  "skills.cat.software_web": "Software & Web Engineering",
+  "skills.cat.qa_systems": "QA & Systems Analysis",
+  "skills.cat.design_multimedia": "Design & Multimedia",
 
   // Projects
   "projects.eyebrow": "Featured Projects",
@@ -61,19 +70,25 @@ export const translationsEn: Record<string, string> = {
   "projects.cat.Game": "Game",
   "projects.cat.IoT": "IoT",
   "projects.cat.Design": "Design",
+  "projects.btn.github": "GitHub Repo",
+  "projects.btn.demo": "Live Demo",
+  "projects.btn.figma": "Figma Prototype",
+  "projects.btn.docs": "Technical Docs",
+  "projects.btn.play": "Play Game",
+  "projects.btn.internal": "Internal Project",
 
   // Project details & descriptions
   "project.erp-konveksikita.title": "KonveksiKita ERP System",
   "project.erp-konveksikita.client": "Personal Project",
   "project.erp-konveksikita.outcome": "Real-time dashboard analytics & role-based access control",
   "project.erp-konveksikita.desc":
-    "A web-based ERP system for garment/convection businesses featuring product management, material tracking, vendor transactions, purchasing, and real-time dashboard analytics with role-based admin control.",
+    "A web-based ERP system for garment/convection businesses featuring product management, material tracking, vendor transactions, purchasing, and real-time dashboard analytics with role-based admin control. Thoroughly validated through Functional Testing and Database Integrity verification.",
 
   "project.church-info-system.title": "Church Information System",
   "project.church-info-system.client": "Church",
   "project.church-info-system.outcome": "Centralized record keeping & scheduling",
   "project.church-info-system.desc":
-    "A web-based church management system featuring member (jemaat) data management, clergy and ministry tracking, worship scheduling, baptism and marriage records, and admin dashboard with real-time statistics.",
+    "A web-based church management system featuring member (jemaat) data management, clergy and ministry tracking, worship scheduling, baptism and marriage records, and admin dashboard with real-time statistics. Verified with end-to-end Functional Testing and Database Integrity enforcement.",
 
   "project.farma-mobile-app.title": "Farma Mobile App",
   "project.farma-mobile-app.client": "Personal Project",
@@ -118,47 +133,51 @@ export const translationsEn: Record<string, string> = {
     "Comprehensive mobile application UI/UX design for NaikBus, an online bus ticket booking platform featuring seat selection, destination discovery, promos, and seamless checkout flow.",
 
   // Experience items
-  "exp.0.title": "Transportation & Accommodation Coordinator (PIC)",
-  "exp.0.desc": "Coordinated transportation and accommodation logistics for guests and committee members, ensuring smooth event operations and schedule execution.",
-  "exp.0.h.0": "Coordinated transportation and accommodation for invited guests and committee members during Karya Nyata Festival Vol.10.",
-  "exp.0.h.1": "Communicated with vendors, committee members, and external parties to ensure smooth operational execution.",
-  "exp.0.h.2": "Ensured all transportation requirements ran on schedule throughout the event.",
+  "exp.0.title": "IT Support Specialist",
+  "exp.0.desc":
+    "Responsible for IT operational availability, first-line technical support, and installation & maintenance of workstations, local networks, and multimedia live streaming systems.",
+  "exp.0.h.0":
+    "Delivered real-time first-line troubleshooting for hardware, OS, applications, and networks while maintaining over 99% operational uptime.",
+  "exp.0.h.1":
+    "Conducted routine preventive maintenance, IT asset management, and local network structuring (LAN/WLAN).",
+  "exp.0.h.2":
+    "Provided technical operational guidance and hands-on problem-solving directly for end-users.",
 
-  "exp.1.title": "Graphic Design Intern",
-  "exp.1.desc": "Designed visual branding materials for MSME certification, export programs, event merchandise, and executive communications.",
-  "exp.1.h.0": "Designed visual assets for BNSP-certified MSME facilitator programs.",
-  "exp.1.h.1": "Created promotional materials for export coaching in partnership with PPI.",
-  "exp.1.h.2": "Produced booth designs, merchandise, and event assets for Karya Nyata Festival Vol.10.",
-  "exp.1.h.3": "Published 20+ social media content items (feeds & reels).",
-  "exp.1.h.4": "Crafted executive presentation & visual materials for C-level leadership (CEO & CFO).",
+  "exp.1.title": "Transportation & Accommodation Coordinator (PIC)",
+  "exp.1.desc": "Coordinated transportation and accommodation logistics for guests and committee members, ensuring smooth event operations and schedule execution.",
+  "exp.1.h.0": "Coordinated transportation and accommodation for invited guests and committee members during Karya Nyata Festival Vol.10.",
+  "exp.1.h.1": "Communicated with vendors, committee members, and external parties to ensure smooth operational execution.",
+  "exp.1.h.2": "Ensured all transportation requirements ran on schedule throughout the event.",
 
   "exp.2.title": "Graphic Design Intern",
-  "exp.2.desc": "Empowered local MSMEs through visual branding, social media marketing, and hands-on product photography training.",
-  "exp.2.h.0": "Designed presentation and marketing materials for MSME training workshops.",
-  "exp.2.h.1": "Created engaging social media content (feeds and Instagram reels).",
-  "exp.2.h.2": "Conducted product photography training to boost MSME visual branding quality.",
+  "exp.2.desc": "Designed visual branding materials for MSME certification, export programs, event merchandise, and executive communications.",
+  "exp.2.h.0": "Designed visual assets for BNSP-certified MSME facilitator programs.",
+  "exp.2.h.1": "Created promotional materials for export coaching in partnership with PPI.",
+  "exp.2.h.2": "Produced booth designs, merchandise, and event assets for Karya Nyata Festival Vol.10.",
+  "exp.2.h.3": "Published 20+ social media content items (feeds & reels).",
+  "exp.2.h.4": "Crafted executive presentation & visual materials for C-level leadership (CEO & CFO).",
 
-  "exp.3.title": "Instructor & Laboratory Assistant",
-  "exp.3.desc":
+  "exp.3.title": "Graphic Design Intern",
+  "exp.3.desc": "Empowered local MSMEs through visual branding, social media marketing, and hands-on product photography training.",
+  "exp.3.h.0": "Designed presentation and marketing materials for MSME training workshops.",
+  "exp.3.h.1": "Created engaging social media content (feeds and Instagram reels).",
+  "exp.3.h.2": "Conducted product photography training to boost MSME visual branding quality.",
+
+  "exp.4.title": "Instructor & Laboratory Assistant",
+  "exp.4.desc":
     "Supported computer laboratory operations and practicum delivery by ensuring workstation readiness, operating systems, applications, and local networking. Provided technical support to students and assisted lecturers in Multimedia, Digital Image Processing, Animation, and Game courses.",
-  "exp.3.h.0": "Instructed Image Processing and Multimedia practicums, covering digital image processing algorithms, visual manipulation, and technical report evaluations.",
-  "exp.3.h.1": "Mentored Game Programming and Animation practicums, providing technical direction on gameplay programming logic, interactive mechanics, and asset integration.",
-  "exp.3.h.2": "Conducted regular Hardware and Software Troubleshooting across lab workstations, operating systems, and local networking to ensure seamless laboratory operations.",
+  "exp.4.h.0": "Instructed Image Processing and Multimedia practicums, covering digital image processing algorithms, visual manipulation, and technical report evaluations.",
+  "exp.4.h.1": "Mentored Game Programming and Animation practicums, providing technical direction on gameplay programming logic, interactive mechanics, and asset integration.",
+  "exp.4.h.2": "Conducted regular Hardware and Software Troubleshooting across lab workstations, operating systems, and local networking to ensure seamless laboratory operations.",
 
   // Education items
-  "edu.0.title": "Informatics Engineering",
-  "edu.0.h.0": "GPA 3.7 / 4.0 — focusing on web systems, IoT, and game development.",
-  "edu.0.h.1": "Laboratory Assistant in Multimedia, Digital Image Processing, Animation, and Game courses.",
+  "edu.0.title": "Bachelor of Informatics Engineering (S.Kom)",
+  "edu.0.h.0": "GPA 3.70 / 4.00 — specialized in IT infrastructure, system operations, web engineering, and digital solutions.",
+  "edu.0.h.1": "Laboratory Assistant for Multimedia, Digital Image Processing, Animation, and Game courses.",
 
-  "edu.1.title": "Science Major",
+  "edu.1.title": "Natural Sciences (MIPA)",
   "edu.1.h.0": "Focused on mathematics, physics, biology, and chemistry.",
-  "edu.1.h.1": "Active in school organizations and extracurricular activities.",
-
-  "edu.2.title": "Junior High School",
-  "edu.2.h.0": "Active in academic competitions and school extracurricular activities.",
-
-  "edu.3.title": "Elementary School",
-  "edu.3.h.0": "Completed primary education with strong foundation in mathematics and sciences.",
+  "edu.1.h.1": "Active in school organizations and academic extracurricular activities.",
 
   // CTA
   "cta.title": "Have an idea? Let's build something custom.",

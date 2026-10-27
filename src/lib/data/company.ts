@@ -16,18 +16,39 @@ import type {
   Achievement,
   CompanyValue,
   PartnerLogo,
+  SkillCategory,
   Stat,
   TimelineItem,
 } from "@/types";
 
 export const stats: Stat[] = [
   { value: 15, suffix: "+", label: "Projects completed" },
-  { value: 3, suffix: "+", label: "Years in tech" },
+  { value: 4, suffix: "+", label: "Years in tech" },
   { value: 20, suffix: "+", label: "Designs crafted" },
   { value: 100, suffix: "%", label: "Dedication to detail" },
 ];
 
 export const experiences: TimelineItem[] = [
+  {
+    year: "2021 — Present",
+    title: "IT Support Specialist",
+    company: "Multimedia GKJW Ringin Pitu",
+    location: "Malang, Indonesia",
+    description:
+      "Responsible for IT operational availability, first-line technical support, and installation & maintenance of workstations, local networks, and multimedia live streaming systems.",
+    highlights: [
+      "Delivered real-time first-line troubleshooting for hardware, OS, applications, and networks while maintaining over 99% operational uptime.",
+      "Conducted routine preventive maintenance, IT asset management, and local network structuring (LAN/WLAN).",
+      "Provided technical operational guidance and hands-on problem-solving for end-users.",
+    ],
+    tags: [
+      "IT Support",
+      "Hardware & Software Diagnostics",
+      "LAN/WLAN",
+      "System Troubleshooting",
+      "Asset Maintenance",
+    ],
+  },
   {
     year: "Aug 2024 — Sep 2024",
     title: "Transportation & Accommodation Coordinator (PIC)",
@@ -144,44 +165,77 @@ export const experiences: TimelineItem[] = [
 export const educationList: TimelineItem[] = [
   {
     year: "2021 — 2025",
-    title: "Informatics Engineering",
+    title: "Bachelor of Informatics Engineering (S.Kom)",
     company: "Institut Teknologi Nasional Malang",
     location: "Malang, Indonesia",
     logoUrl: "/images/logo-itn.webp",
     highlights: [
-      "GPA 3.7 / 4.0 — focusing on web systems, IoT, and game developer.",
-      "Laboratory Assistant in Multimedia, Digital Image Processing, Animation, and Game courses.",
+      "GPA 3.70 / 4.00 — specialized in IT infrastructure, system operations, web engineering, and digital solutions.",
+      "Laboratory Assistant for Multimedia, Digital Image Processing, Animation, and Game courses.",
     ],
   },
   {
     year: "2018 — 2021",
-    title: "Science Major",
+    title: "Natural Sciences (MIPA)",
     company: "SMA Katolik Yos Sudarso Kepanjen",
     location: "Malang, Indonesia",
     logoUrl: "/images/SMAK.webp",
     highlights: [
       "Focused on mathematics, physics, biology, and chemistry.",
-      "Active in school organizations and extracurricular activities.",
+      "Active in school organizations and academic extracurricular activities.",
+    ],
+  },
+];
+
+export const skillCategories: SkillCategory[] = [
+  {
+    title: "IT Support & Infrastructure",
+    key: "it_support",
+    iconName: "network",
+    skills: [
+      "First-Line Support",
+      "Hardware/Software Diagnostics",
+      "Windows/Linux OS",
+      "Network (LAN/TCP-IP/Router Setup)",
+      "Remote Desktop (AnyDesk/RDP)",
+      "Preventive Maintenance",
     ],
   },
   {
-    year: "2015 — 2018",
-    title: "Junior High School",
-    company: "SMP Satya Dharma Sudjana",
-    location: "Lampung Tengah, Indonesia",
-    logoUrl: "/images/SMP SS.webp",
-    highlights: [
-      "Active in academic competitions and school extracurricular activities.",
+    title: "Software & Web Engineering",
+    key: "software_web",
+    iconName: "code",
+    skills: [
+      "PHP",
+      "Laravel",
+      "MySQL",
+      "JavaScript",
+      "React.js",
+      "Python",
+      "Git",
     ],
   },
   {
-    year: "2009 — 2015",
-    title: "Elementary School",
-    company: "SD Negeri 1 Gunung Madu",
-    location: "Lampung Tengah, Indonesia",
-    logoUrl: "/images/Logo_of_Ministry_of_Education_and_Culture_of_Republic_of_Indonesia.svg",
-    highlights: [
-      "Completed primary education with strong foundation in mathematics and sciences.",
+    title: "QA & Systems Analysis",
+    key: "qa_systems",
+    iconName: "check",
+    skills: [
+      "SDLC/STLC",
+      "Test Scenario & Test Case",
+      "Bug Reporting",
+      "Postman",
+      "API Testing",
+    ],
+  },
+  {
+    title: "Design & Multimedia",
+    key: "design_multimedia",
+    iconName: "palette",
+    skills: [
+      "Figma",
+      "Adobe Photoshop",
+      "Video Editing",
+      "Live Streaming Setup",
     ],
   },
 ];
@@ -215,7 +269,7 @@ export const values: CompanyValue[] = [
 
 export const achievements: Achievement[] = [
   { org: "Rumah BUMN Jawa Timur", award: "Social Media Designer", year: "2024" },
-  { org: "State University of Malang", award: "Computer Engineering Major", year: "2021 - Present" },
+  { org: "Institut Teknologi Nasional Malang", award: "Sarjana Komputer (S.Kom) - Teknik Informatika", year: "2021 — 2025" },
   { org: "Rumah BUMN Malang", award: "Social Media & UMKM Trainer", year: "2024" },
 ];
 
