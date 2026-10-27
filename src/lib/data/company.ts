@@ -133,10 +133,9 @@ export const experiences: TimelineItem[] = [
     description:
       "Supported computer laboratory operations and practicum delivery by ensuring workstation readiness, operating systems, applications, and local networking. Provided technical support to students and assisted lecturers in Multimedia, Digital Image Processing, Animation, and Game courses.",
     highlights: [
-      "Maintained workstation hardware, operating systems, and performed troubleshooting on specialized lab software.",
-      "Supported local network (LAN) operations and provided remote technical assistance to maintain seamless practicum connectivity.",
-      "Instructed and mentored students during Multimedia, Digital Image Processing, Animation, and Game practicums.",
-      "Delivered hands-on technical guidance and assisted in the evaluation of student assignments and practicum reports.",
+      "Instructed Image Processing and Multimedia practicums, covering digital image processing algorithms, visual manipulation, and technical report evaluations.",
+      "Mentored Game Programming and Animation practicums, providing technical direction on gameplay programming logic, interactive mechanics, and asset integration.",
+      "Conducted regular Hardware and Software Troubleshooting across lab workstations, operating systems, and local networking to ensure seamless laboratory operations.",
     ],
     tags: ["Image Processing", "Game Programming", "Hardware and Software Troubleshooting"],
   },
