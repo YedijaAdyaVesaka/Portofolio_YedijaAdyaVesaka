@@ -194,6 +194,7 @@ export default function Carousel({
   items = DEFAULT_ITEMS,
   baseWidth = 300,
   aspectRatio = 1.25,
+  mobileAspectRatio,
   peek = 0,
   gap = 16,
   radius = 12,
@@ -229,6 +230,7 @@ export default function Carousel({
   const onChangeRef = useRef(onChange);
   onChangeRef.current = onChange;
   const ratio = clamp(aspectRatio, 0.3, 4);
+  const mobileRatio = clamp(mobileAspectRatio ?? ratio, 0.3, 4);
   const maxWidth =
     typeof baseWidth === 'number' && round && frame ? 20 + (baseWidth - 20) * Math.min(1, 1 / ratio) : baseWidth;
   const [width, setWidth] = useState(typeof maxWidth === 'number' ? maxWidth - (frame ? 20 : 0) : 300);
@@ -247,7 +249,7 @@ export default function Carousel({
     : visibleItems > 1
       ? Math.max(40, (slot - Math.max(0, gap) * (visibleItems - 1)) / visibleItems)
       : slot;
-  const cardHeight = round ? diameter : cardWidth / ratio;
+  const cardHeight = round ? diameter : cardWidth / (width < 640 ? mobileRatio : ratio);
   const clipped = !frame && !stacked;
   const bleed = clipped && visibleItems === 1 ? Math.round(Math.min(48, cardWidth * 0.12)) : 0;
   const inset = visibleItems > 1 ? 0 : bleed + (width - cardWidth) / 2;

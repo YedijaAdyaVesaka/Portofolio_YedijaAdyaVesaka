@@ -58,17 +58,17 @@ export function PortfolioPreview() {
       {/* Middle Illustration / Mockup Card Art */}
       <div className="relative z-10 my-auto flex items-center justify-center py-4">
         {project.image ? (
-          <div className="relative flex aspect-video w-full max-w-[280px] overflow-hidden rounded-2xl border border-border/70 dark:border-white/15 shadow-md backdrop-blur-md transition-transform duration-500 group-hover:scale-105">
+          <div className="relative flex aspect-video w-full max-w-[220px] overflow-hidden rounded-2xl border border-border/70 dark:border-white/15 shadow-md backdrop-blur-md transition-transform duration-500 group-hover:scale-105 sm:max-w-[280px]">
             <Image
               src={project.image}
               alt={project.title}
               fill
               sizes="(max-width: 768px) 280px, 280px"
-              className="object-cover"
+              className="bg-background/50 object-contain"
             />
           </div>
         ) : (
-          <div className="relative flex aspect-video w-full max-w-[260px] flex-col items-center justify-center overflow-hidden rounded-2xl border border-border/70 bg-gradient-to-br from-background/90 via-muted/60 to-background/90 dark:border-white/10 dark:from-zinc-800/80 dark:via-zinc-900/90 dark:to-zinc-950 p-4 shadow-md backdrop-blur-md transition-transform duration-500 group-hover:scale-105">
+          <div className="relative flex aspect-video w-full max-w-[220px] flex-col items-center justify-center overflow-hidden rounded-2xl border border-border/70 bg-gradient-to-br from-background/90 via-muted/60 to-background/90 dark:border-white/10 dark:from-zinc-800/80 dark:via-zinc-900/90 dark:to-zinc-950 p-4 shadow-md backdrop-blur-md transition-transform duration-500 group-hover:scale-105 sm:max-w-[260px]">
             {/* Window Header Dots */}
             <div className="absolute left-3 top-3 flex gap-1.5">
               <span className="h-2 w-2 rounded-full bg-red-500/70" />
@@ -95,7 +95,7 @@ export function PortfolioPreview() {
         <h3 className="text-xl font-bold tracking-tight text-foreground dark:text-white transition-colors group-hover:text-blue-600 dark:group-hover:text-sky-400">
           {t(`project.${project.slug}.title`)}
         </h3>
-        <p className="mt-2 text-xs leading-relaxed text-muted-foreground dark:text-zinc-400 line-clamp-2 sm:line-clamp-3">
+        <p className="mt-2 text-xs leading-relaxed text-muted-foreground dark:text-zinc-400">
           {t(`project.${project.slug}.desc`)}
         </p>
 
@@ -183,13 +183,14 @@ export function PortfolioPreview() {
           </div>
         </Reveal>
 
-        {/* React Bits Carousel: show three projects in one view */}
+        {/* React Bits Carousel: show one complete project in each slide */}
         <div className="w-full max-w-4xl mx-auto py-2">
           <Carousel
             key={activeCategory}
             items={projectSlides}
-            baseWidth={640}
-            aspectRatio={1.6}
+            baseWidth={720}
+            aspectRatio={1.35}
+            mobileAspectRatio={0.75}
             effect="scale"
             indicator="bars"
             frame={false}
@@ -199,9 +200,9 @@ export function PortfolioPreview() {
             autoplayDelay={4000}
             pauseOnHover
             theme="dark"
-            peek={64}
+            peek={0}
             radius={20}
-            itemsPerView={3}
+            itemsPerView={1}
             className="mx-auto"
           />
         </div>
