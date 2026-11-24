@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button-variants";
+import ShinyText from "@/components/ui/ShinyText";
 import TechText from "@/components/ui/tech-text";
 import { useLanguage } from "@/context/language-context";
 import { siteConfig } from "@/lib/site";
@@ -164,9 +165,18 @@ export function Hero() {
           className="text-balance text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[0.95] mb-6 text-foreground"
         >
           <span className="block text-foreground">Yedija Adya</span>
-          <span className="block bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-500 dark:from-blue-300 dark:via-blue-400 dark:to-indigo-500 bg-clip-text text-transparent">
-            Vesaka
-          </span>
+          <ShinyText
+            text="Vesaka"
+            color="#60a5fa"
+            shineColor="#ffffff"
+            speed={2.4}
+            delay={0.8}
+            shineWidth={35}
+            softness={0.85}
+            glow={0.18}
+            trigger="loop"
+            className="block"
+          />
         </motion.h1>
 
         {/* Subtitle / Animated Text (Fade & Slide) */}
