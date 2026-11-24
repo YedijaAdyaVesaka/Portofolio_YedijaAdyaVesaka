@@ -1,7 +1,16 @@
 'use client';
 
 import { isValidElement, useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, Layers, Timer, Terminal, Image as ImageIcon, Hand } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import {
+  ArrowLeft01Icon,
+  ArrowRight01Icon,
+  CommandIcon,
+  Drag04Icon,
+  Image01Icon,
+  Layers01Icon,
+  Timer02Icon
+} from '@hugeicons/core-free-icons';
 
 import './carousel.css';
 
@@ -12,31 +21,31 @@ const DEFAULT_ITEMS = [
     id: 1,
     title: 'Swipe with momentum',
     description: 'Fling the cards and they glide into place.',
-    icon: <Hand className="h-4 w-4" />
+    icon: <HugeiconsIcon icon={Drag04Icon} size={16} strokeWidth={1.8} />
   },
   {
     id: 2,
     title: 'Autoplay with a timer',
     description: 'The indicator fills up so people know what comes next.',
-    icon: <Timer className="h-4 w-4" />
+    icon: <HugeiconsIcon icon={Timer02Icon} size={16} strokeWidth={1.8} />
   },
   {
     id: 3,
     title: 'Five transitions',
     description: 'Tilt, slide, scale, fade or turn the cards like a cube.',
-    icon: <Layers className="h-4 w-4" />
+    icon: <HugeiconsIcon icon={Layers01Icon} size={16} strokeWidth={1.8} />
   },
   {
     id: 4,
     title: 'Keyboard friendly',
     description: 'Arrow keys, Home and End move between the cards.',
-    icon: <Terminal className="h-4 w-4" />
+    icon: <HugeiconsIcon icon={CommandIcon} size={16} strokeWidth={1.8} />
   },
   {
     id: 5,
     title: 'Bring any content',
     description: 'Pass text, images or your own components as cards.',
-    icon: <ImageIcon className="h-4 w-4" />
+    icon: <HugeiconsIcon icon={Image01Icon} size={16} strokeWidth={1.8} />
   }
 ];
 
@@ -151,7 +160,7 @@ const keyOf = (item, index) => {
 };
 
 const Chevron = ({ flip }) => (
-  flip ? <ArrowLeft className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />
+  <HugeiconsIcon icon={flip ? ArrowLeft01Icon : ArrowRight01Icon} size={16} strokeWidth={2} />
 );
 
 const Card = ({ item, round, compact }) => {
@@ -200,6 +209,7 @@ export default function Carousel({
   round = false,
   initialIndex = 0,
   theme = 'dark',
+  itemsPerView = 1,
   onChange,
   className = '',
   style
@@ -207,6 +217,7 @@ export default function Carousel({
   const count = items.length;
   const mode = EFFECTS.includes(effect) ? effect : 'tilt';
   const stacked = mode === 'fade' || mode === 'cube';
+  const requestedItemsPerView = Math.max(1, Math.floor(itemsPerView));
   const rootRef = useRef(null);
   const stageRef = useRef(null);
   const viewportRef = useRef(null);
@@ -221,19 +232,25 @@ export default function Carousel({
   const maxWidth =
     typeof baseWidth === 'number' && round && frame ? 20 + (baseWidth - 20) * Math.min(1, 1 / ratio) : baseWidth;
   const [width, setWidth] = useState(typeof maxWidth === 'number' ? maxWidth - (frame ? 20 : 0) : 300);
-  const [active, setActive] = useState(() => clamp(Math.round(initialIndex), 0, Math.max(0, count - 1)));
+  const [active, setActive] = useState(() => clamp(Math.round(initialIndex), 0, Math.max(0, count - requestedItemsPerView)));
   const startRef = useRef(active);
   const reportedRef = useRef(active);
   const previousRef = useRef(active);
 
-  const side = stacked || (round && frame) ? 0 : clamp(peek, 0, width * 0.2);
+  const responsiveItems = width < 640 ? 1 : width < 860 ? Math.min(2, requestedItemsPerView) : requestedItemsPerView;
+  const visibleItems = stacked ? 1 : Math.min(responsiveItems, Math.max(1, count));
+  const side = stacked || visibleItems > 1 || (round && frame) ? 0 : clamp(peek, 0, width * 0.2);
   const slot = Math.max(40, width - side * 2);
   const diameter = frame ? slot : Math.min(slot, slot / ratio);
-  const cardWidth = round ? diameter : slot;
-  const cardHeight = round ? diameter : slot / ratio;
+  const cardWidth = round
+    ? diameter
+    : visibleItems > 1
+      ? Math.max(40, (slot - Math.max(0, gap) * (visibleItems - 1)) / visibleItems)
+      : slot;
+  const cardHeight = round ? diameter : cardWidth / ratio;
   const clipped = !frame && !stacked;
-  const bleed = clipped ? Math.round(Math.min(48, cardWidth * 0.12)) : 0;
-  const inset = bleed + (width - cardWidth) / 2;
+  const bleed = clipped && visibleItems === 1 ? Math.round(Math.min(48, cardWidth * 0.12)) : 0;
+  const inset = visibleItems > 1 ? 0 : bleed + (width - cardWidth) / 2;
   const settings = {
     count,
     mode,
@@ -241,6 +258,8 @@ export default function Carousel({
     bleed,
     inset,
     cardWidth,
+    visibleItems,
+    maxIndex: Math.max(0, count - visibleItems),
     span: cardWidth + Math.max(0, gap),
     loop: loop && count > 1,
     autoplay: autoplay && count > 1,
@@ -279,7 +298,7 @@ export default function Carousel({
     let alive = true;
 
     const unit = s => (s.mode === 'fade' || s.mode === 'cube' ? s.cardWidth : s.span);
-    const limit = (s, value) => (s.loop ? value : clamp(value, 0, s.count - 1));
+    const limit = (s, value) => (s.loop ? value : clamp(value, 0, s.maxIndex));
 
     const apply = () => {
       const s = settingsRef.current;
@@ -306,7 +325,7 @@ export default function Carousel({
     const announce = () => {
       const s = settingsRef.current;
       if (!s.count) return;
-      const index = s.loop ? wrap(Math.round(state.target), s.count) : clamp(Math.round(state.target), 0, s.count - 1);
+      const index = s.loop ? wrap(Math.round(state.target), s.count) : clamp(Math.round(state.target), 0, s.maxIndex);
       if (index === state.shown) return;
       state.shown = index;
       setActive(index);
@@ -377,8 +396,8 @@ export default function Carousel({
       if (s.count < 2) return;
       let next = Math.round(state.target) + direction;
       if (!s.loop) {
-        if (auto && next > s.count - 1) next = 0;
-        next = clamp(next, 0, s.count - 1);
+        if (auto && next > s.maxIndex) next = 0;
+        next = clamp(next, 0, s.maxIndex);
       }
       moveTo(next);
     };
@@ -386,7 +405,7 @@ export default function Carousel({
     const goTo = index => {
       const s = settingsRef.current;
       if (!s.count) return;
-      const goal = clamp(Math.round(index), 0, s.count - 1);
+      const goal = clamp(Math.round(index), 0, s.maxIndex);
       const current = Math.round(state.target);
       moveTo(s.loop ? current + nearest(goal - wrap(current, s.count), s.count) : goal);
     };
@@ -457,8 +476,8 @@ export default function Carousel({
         if (Math.abs(velocity) > 0.8) target += Math.sign(velocity);
         else if (Math.abs(travelled) > 0.18) target += Math.sign(travelled);
       }
-      if (!s.loop) target = clamp(target, 0, s.count - 1);
-      const inside = s.loop || (state.p >= 0 && state.p <= s.count - 1);
+      if (!s.loop) target = clamp(target, 0, s.maxIndex);
+      const inside = s.loop || (state.p >= 0 && state.p <= s.maxIndex);
       state.v = inside ? velocity : 0;
       moveTo(target);
     };
@@ -475,7 +494,7 @@ export default function Carousel({
       if (!s.draggable || Math.abs(event.deltaX) <= Math.abs(event.deltaY)) return;
       event.preventDefault();
       const raw = state.p + event.deltaX / unit(s);
-      state.p = s.loop ? raw : clamp(raw, -0.15, s.count - 0.85);
+      state.p = s.loop ? raw : clamp(raw, -0.15, s.maxIndex - 0.85);
       state.v = 0;
       state.wheeling = true;
       state.target = Math.round(limit(s, state.p));
@@ -562,8 +581,8 @@ export default function Carousel({
       sync: () => {
         const s = settingsRef.current;
         if (!s.loop && s.count) {
-          state.target = clamp(Math.round(state.target), 0, s.count - 1);
-          state.p = clamp(state.p, -0.3, s.count - 0.7);
+          state.target = clamp(Math.round(state.target), 0, s.maxIndex);
+          state.p = clamp(state.p, -0.3, s.maxIndex + 0.7);
         }
         announce();
         apply();
@@ -620,9 +639,9 @@ export default function Carousel({
     );
   }, [active, count, loop]);
 
-  const controls = count > 1 && (indicator !== 'none' || arrows);
+  const controls = count > settings.visibleItems && (indicator !== 'none' || arrows);
   const atStart = !settings.loop && active === 0;
-  const atEnd = !settings.loop && active === count - 1;
+  const atEnd = !settings.loop && active >= settings.maxIndex;
   const perspective = mode === 'cube' ? `${Math.round(cardWidth * 2.6)}px` : mode === 'tilt' ? '1000px' : undefined;
   const mask = clipped ? edgeMask(inset) : undefined;
 
@@ -642,12 +661,14 @@ export default function Carousel({
 
       {indicator === 'dots' && (
         <div className="carousel-dots">
-          {items.map((_, index) => (
+          {Array.from({
+            length: settings.loop ? count : Math.max(1, count - settings.visibleItems + 1)
+          }, (_, index) => (
             <button
               key={index}
               type="button"
               className={`carousel-dot${index === active ? ' is-active' : ''}`}
-              aria-label={`Go to slide ${index + 1}`}
+              aria-label={`Go to slide group ${index + 1}`}
               aria-current={index === active ? 'true' : undefined}
               onClick={() => engineRef.current?.goTo(index)}
             >
@@ -659,7 +680,9 @@ export default function Carousel({
 
       {indicator === 'bars' && (
         <div className="carousel-bars">
-          {items.map((_, index) => (
+          {Array.from({
+            length: settings.loop ? count : Math.max(1, count - settings.visibleItems + 1)
+          }, (_, index) => (
             <button
               key={index}
               type="button"

@@ -28,6 +28,7 @@ export interface CarouselProps {
   round?: boolean;
   initialIndex?: number;
   theme?: "dark" | "light";
+  itemsPerView?: number;
   onChange?: (index: number) => void;
   className?: string;
   style?: React.CSSProperties;

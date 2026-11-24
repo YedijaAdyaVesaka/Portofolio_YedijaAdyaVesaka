@@ -183,21 +183,25 @@ export function PortfolioPreview() {
           </div>
         </Reveal>
 
-        {/* React Bits Carousel Showcase with 3D Tilt */}
+        {/* React Bits Carousel: show three projects in one view */}
         <div className="w-full max-w-4xl mx-auto py-2">
           <Carousel
             key={activeCategory}
             items={projectSlides}
-            baseWidth={620}
-            aspectRatio={0.72}
-            peek={70}
-            gap={20}
-            effect="tilt"
+            baseWidth={640}
+            aspectRatio={1.6}
+            effect="scale"
             indicator="bars"
-            arrows={true}
-            draggable={true}
-            loop={projectSlides.length > 1}
             frame={false}
+            arrows
+            loop
+            autoplay
+            autoplayDelay={4000}
+            pauseOnHover
+            theme="dark"
+            peek={64}
+            radius={20}
+            itemsPerView={3}
             className="mx-auto"
           />
         </div>
