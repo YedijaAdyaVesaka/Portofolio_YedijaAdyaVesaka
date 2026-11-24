@@ -239,7 +239,7 @@ export default function Carousel({
   const reportedRef = useRef(active);
   const previousRef = useRef(active);
 
-  const responsiveItems = width < 640 ? 1 : width < 860 ? Math.min(2, requestedItemsPerView) : requestedItemsPerView;
+  const responsiveItems = width < 560 ? 1 : width < 640 ? Math.min(2, requestedItemsPerView) : requestedItemsPerView;
   const visibleItems = stacked ? 1 : Math.min(responsiveItems, Math.max(1, count));
   const side = stacked || visibleItems > 1 || (round && frame) ? 0 : clamp(peek, 0, width * 0.2);
   const slot = Math.max(40, width - side * 2);
