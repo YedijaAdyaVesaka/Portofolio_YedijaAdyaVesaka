@@ -227,6 +227,7 @@ export function Navbar() {
                     ) : (
                       <Link
                         href={link.href}
+                        onClick={() => setDrawerOpen(false)}
                         className={cn(
                           "flex items-center justify-between border-b border-border/60 py-4 text-lg font-medium transition-colors",
                           isLinkActive(link) ? "text-primary" : "hover:text-primary"
